@@ -1,0 +1,53 @@
+<h1>Data Mahasiswa</h1>
+<%= link_to 'Tambah Data', new_student_path %>
+<table border="1 px">
+  <tr>
+    <th>NIM</th>
+    <th>Nama</th>
+    <th>Jenis Kelamis</th>
+    <th>Alamat</th>
+    <th>Tempat Lahir</th>
+    <th>Tangal Lahir</th>
+    <th>No Telepon</th>
+    <th>Jurusan</th>
+    <th>Fakultas</th>
+    <th>Email</th>
+    <th>Kepribadian</th>
+    <th>Keterangan</th>
+    <th>Action</th>
+  </tr>
+
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= link_to student.nim, student_path(student) %></td>
+      <td><%= student.nama %></td>
+      <td><%= student.jenis_kelamin %></td>
+      <td><%= student.alamat %></td>
+      <td><%= student.tempat_lahir %></td>
+      <td><%= student.tgl_lahir %></td>
+      <td><%= student.no_telepon %></td>
+      <td><%= student.jurusan %></td>
+      <td><%= student.fakultas %></td>
+      <td><%= student.email %></td>
+      <td><%= student.kepribadian %></td>
+      <td><%= student.keterangan %></td>
+      <td><%= link_to 'Edit', edit_student_path(student) %>
+        <%= link_to 'Delete', student_path(student),
+        method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

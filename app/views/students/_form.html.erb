@@ -1,0 +1,93 @@
+<%= form_with model: @student, local: true do |form| %>
+
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@student.errors.count, "error") %> prohibited
+        this student from being saved:
+      </h2>
+      <ul>
+        <% @student.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :nim %><br>
+    <%= form.text_field :nim %>
+  </p>
+
+  <p>
+    <%= form.label :nama %><br>
+    <%= form.text_field :nama %>
+  </p>
+
+  <p>
+    <%= form.radio_button :jenis_kelamin, 'Laki-laki' %>
+    <%= label :jenis_kelamin_Laki_laki, 'Laki-laki' %>
+    <%= form.radio_button :jenis_kelamin, 'perempuan' %>
+    <%= label :jenis_kelamin_perempuan, 'Perempuan' %>
+  </p>
+
+  <p>
+    <%= form.label :alamat %><br>
+    <%= form.text_area :alamat %>
+  </p>
+
+  <p>
+    <%= form.label :tempat_lahir %><br>
+    <%= form.text_field :tempat_lahir %>
+  </p>
+
+  <p>
+    <%= form.label :tanggal_lahir %><br>
+    <%= form.date_field :tgl_lahir %>
+  </p>
+
+  <p>
+    <%= form.label :no_telepon %><br>
+    <%= form.telephone_field :no_telepon %>
+  </p>  
+
+  <p>
+    <%= form.label :jurusan %><br>
+    <%= form.text_field :jurusan %>
+  </p>
+
+  <p>
+    <%= form.label :fakultas %><br>
+    <%= form.text_field :fakultas %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :profile_picture %><br>
+    <%= form.file_field :profile_picture %>
+    <% if form.object.profile_picture? %>
+      <%= image_tag form.object.profile_picture.thumb.url %>
+      <%= form.label :remove_profile_picture %>
+      <%= form.check_box :remove_profile_picture %> 
+    <% end %>
+  </p>
+
+  <p>
+    <%= form.label :kepribadian %><br>
+    <%= form.text_field :kepribadian %>
+  </p>
+
+  <p>
+    <%= form.label :keterangan %><br>
+    <%= form.text_field :keterangan %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

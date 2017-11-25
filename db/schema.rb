@@ -10,9 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171125011554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "questions", force: :cascade do |t|
+    t.text "pertanyaan"
+    t.string "pilihan_A"
+    t.string "pilihan_B"
+    t.string "pilihan_C"
+    t.string "pilihan_D"
+    t.string "jawaban"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "nim"
+    t.string "nama"
+    t.string "jenis_kelamin"
+    t.text "alamat"
+    t.string "tempat_lahir"
+    t.date "tgl_lahir"
+    t.string "jurusan"
+    t.string "fakultas"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "kepribadian"
+    t.string "no_telepon"
+    t.string "keterangan"
+    t.string "profile_picture"
+  end
 
 end
