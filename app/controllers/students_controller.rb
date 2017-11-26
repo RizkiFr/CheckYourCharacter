@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 	def index
-    @students = Student.all
+    @students = Student.search(params[:term])
   end
 
   def show
@@ -44,6 +44,6 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:nim, :nama, :jenis_kelamin, :alamat, :tempat_lahir, :tgl_lahir, :jurusan, :fakultas, :email, :no_telepon,:kepribadian, :keterangan, :profile_picture, :remove_profile_picture)
+      params.require(:student).permit(:nim, :nama, :jenis_kelamin, :alamat, :tempat_lahir, :tgl_lahir, :jurusan, :fakultas, :email, :no_telepon,:kepribadian, :keterangan, :profile_picture, :remove_profile_picture, :term)
     end
 end

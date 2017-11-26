@@ -10,10 +10,27 @@ class Student < ApplicationRecord
 	validates :email, presence: true
 	validates :no_telepon, presence: true
 
+	validates :nim, uniqueness: true
+
+	validates :nim, numericality: { only_integer: true }
+	validates :no_telepon, numericality: { only_integer: true }
+
+	validates :nim, length: { is: 10 }
+
 	validates_presence_of :profile_picture
+
 	validate :profile_picture_identifier
 
 	mount_uploader :profile_picture, ImageUploader
+
+	def self.search(term)
+	  if term
+	    where('nim LIKE ?', "%#{term}%")
+	  else
+	    all
+	  end
+	end
+
 
 	private
   def profile_picture_size_validation

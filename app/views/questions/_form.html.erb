@@ -1,0 +1,50 @@
+<%= form_with model: @question, local: true do |form| %>
+
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@question.errors.count, "error") %> data gagal disimpan
+      </h2>
+      <ul>
+        <% @question.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :no %><br>
+    <%= form.text_field :no %>
+  </p>
+
+  <p>
+    <%= form.label :pertanyaan %><br>
+    <%= form.text_field :pertanyaan %>
+  </p>
+
+  <p>
+    <%= form.label :pilihan_A %><br>
+    <%= form.text_field :pilihan_A %>
+  </p>
+
+  <p>
+    <%= form.label :pilihan_B %><br>
+    <%= form.text_field :pilihan_B %>
+  </p>
+
+  <p>
+    <%= form.label :pilihan_C %><br>
+    <%= form.text_field :pilihan_C %>
+  </p>
+
+  <p>
+    <%= form.label :pilihan_D %><br>
+    <%= form.text_field :pilihan_D %>
+  </p>  
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

@@ -3,8 +3,7 @@
   <% if @student.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@student.errors.count, "error") %> prohibited
-        this student from being saved:
+        <%= pluralize(@student.errors.count, "error") %> data gagal disimpan
       </h2>
       <ul>
         <% @student.errors.full_messages.each do |msg| %>
@@ -74,16 +73,6 @@
       <%= form.label :remove_profile_picture %>
       <%= form.check_box :remove_profile_picture %> 
     <% end %>
-  </p>
-
-  <p>
-    <%= form.label :kepribadian %><br>
-    <%= form.text_field :kepribadian %>
-  </p>
-
-  <p>
-    <%= form.label :keterangan %><br>
-    <%= form.text_field :keterangan %>
   </p>
 
   <p>

@@ -1,0 +1,41 @@
+<h1>Data Pertanyaan</h1>
+<%= link_to 'Tambah Data', new_question_path %>
+<table border="1 px">
+  <tr>
+    <th>No</th>
+    <th>Pertanyaan</th>
+    <th>Pilihan A</th>
+    <th>Pilihan B</th>
+    <th>Pilihan C</th>
+    <th>Pilihan D</th>
+    <th>Action</th>
+  </tr>
+
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= link_to question.no, question_path(question) %></td>
+      <td><%= question.pertanyaan %></td>
+      <td><%= question.pilihan_A %></td>
+      <td><%= question.pilihan_B %></td>
+      <td><%= question.pilihan_C %></td>
+      <td><%= question.pilihan_D %></td>
+      <td><%= link_to 'Edit', edit_question_path(question) %>
+        <%= link_to 'Delete', question_path(question),
+        method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
