@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  #config/environments/prodcution.rb
+  config.assets.precompile += ['application.css.scss', 'application.js']
   # Code is not reloaded between requests.
   config.cache_classes = true
 

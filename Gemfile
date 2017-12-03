@@ -4,6 +4,14 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+
+# export to pdf
+gem 'wicked_pdf', '~> 1.1'
+gem 'wkhtmltopdf-binary'
+# to show an error when uploader cannot be found
+gem 'net-ssh'
+# gem for login
+gem 'devise'  
 # for upload image
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
@@ -40,7 +48,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver' 
+  # gem for testing
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

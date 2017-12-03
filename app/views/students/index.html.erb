@@ -4,7 +4,7 @@
   <%= text_field_tag :term, params[:term] %>
   <%= submit_tag 'Search', nim: nil %>
 <% end %>
-
+<li><%= link_to "Export to Excel", students_path(format: "xls") %></li>
 <%= link_to 'Tambah Data', new_student_path %>
 <table border="1 px">
   <tr>
