@@ -1,0 +1,118 @@
+*{
+	margin:0px; padding:0px; font-family: arial;
+}
+.wrapper{
+	width: 100%;
+	height: auto;
+	background-color: red;
+}
+nav{
+	width: 100%;
+	height: 100px;
+	background-color: red;
+}
+nav ul{
+	list-style: none;
+	position: relative;
+	display: inline-table;
+}
+nav ul li{
+	float: left;
+}
+nav ul li a{
+	display: block;
+	padding: 15px;
+	color: white;
+	text-decoration: none;
+}
+.head{
+	width: 100%;
+	height:90px;
+	float: left;
+	background:rgba(50, 50, 50, 0.2);
+}
+header{
+	margin:0px 0px 0px 0px;
+	width: 100%;
+	height: 804px;
+	background:#1E8BC3;
+}
+.orang{
+	width: 700px;
+	top: 264px;
+	left: 50%;
+	margin-left: -350px;
+	position:absolute;
+}
+.nav1{
+	top: 50%;
+	left: 50%;
+	margin-left: -400px;
+	position: absolute;
+}
+.nav2{
+	top: 50%;
+	left: 50%;
+	margin-left: -250px;
+	margin-top: -200px;
+	position: absolute;
+}
+.nav3{
+	top: 50%;
+	left: 50%;
+	margin-left: 150px;
+	margin-top: -200px;
+	position: absolute;
+}
+.nav4{
+	top: 50%;
+	left: 50%;
+	margin-left: 300px;
+	position: absolute;
+}
+.nav1:hover img{
+	width: 120px;
+}
+.nav2:hover img{
+	width: 120px;
+}
+.nav3:hover img{
+	width: 120px;
+}
+.nav4:hover img{
+	width: 120px;
+}
+.logo img{
+	position: relative;
+	width: 150px;
+	margin-top: 15px;
+	margin-left: -75px;
+	left: 50%;
+}
+form{
+	display: inline-block;
+	margin-top: 30px;
+	margin-left: 380px;
+	position: absolute;
+}
+.username{
+	padding:6px 15px;
+    background:rgba(208, 209, 207, 0.5);
+    border:2px solid #D0D1CF;
+    border-radius: 5px;
+}
+.pass{
+	padding:6px 15px;
+    background:rgba(208, 209, 207, 0.5);
+    border:2px solid #D0D1CF;
+    border-radius: 5px;
+}
+.login{
+	position:relative;
+    padding:6px 15px;
+    left:0px;
+    border:2px solid #E8473D;
+    background-color:#E8473D;
+    color:#fafafa;
+    border-radius: 5px;
+}

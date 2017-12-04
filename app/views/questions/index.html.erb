@@ -1,30 +1,82 @@
-<h1>Data Pertanyaan</h1>
-<%= link_to 'Tambah Data', new_question_path %>
-<table border="1 px">
-  <tr>
-    <th>No</th>
-    <th>Pertanyaan</th>
-    <th>Pilihan A</th>
-    <th>Pilihan B</th>
-    <th>Pilihan C</th>
-    <th>Pilihan D</th>
-    <th>Action</th>
-  </tr>
-
-  <% @questions.each do |question| %>
-    <tr>
-      <td><%= link_to question.no, question_path(question) %></td>
-      <td><%= question.pertanyaan %></td>
-      <td><%= question.pilihan_A %></td>
-      <td><%= question.pilihan_B %></td>
-      <td><%= question.pilihan_C %></td>
-      <td><%= question.pilihan_D %></td>
-      <td><%= link_to 'Edit', edit_question_path(question) %>
-        <%= link_to 'Delete', question_path(question),
-        method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check Your Character</title>
+  <%= stylesheet_link_tag "bootstrap", media: "all", "data-turbolinks-track" => "reload" %>
+  <%= stylesheet_link_tag "login", media: "all", "data-turbolinks-track" => "reload" %>  
+  <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => "reload" %>
+</head>
+<body>
+<div class="header">
+  <nav>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to image_tag("logo", width: 100), {controller: 'welcome'} %>
+      </div>
+      <ul class="nav nav-pills">
+         <li role="presentation"><%= link_to 'Mahasiswa', students_path %></li>
+          <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
+      </ul>
+      <ul class="nav nav-pills navbar-right">
+        <div class="navbar-text pull-right">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>.
+             <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+          <% end %>
+        </div>    
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="content">
+    <div class="container-fluid">
+      <%= link_to 'Tambah Data', new_question_path %>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Pertanyaan</th>
+              <th>Pilihan A</th>
+              <th>Pilihan B</th>
+              <th>Pilihan C</th>
+              <th>Pilihan D</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @questions.each do |question| %>
+              <tr>
+                <td><%= link_to question.no, question_path(question) %></td>
+                <td><%= question.pertanyaan %></td>
+                <td><%= question.pilihan_A %></td>
+                <td><%= question.pilihan_B %></td>
+                <td><%= question.pilihan_C %></td>
+                <td><%= question.pilihan_D %></td>
+                <td align="center"><%= link_to 'Edit', edit_question_path(question) %>
+                  <%= link_to 'Delete', question_path(question),
+                  method: :delete, data: { confirm: 'Are you sure?' } %>    
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        &copy; 2017. Designed by CYC Team.
+    </div>
+</div>
+</body>
+</html>
 
 
 
