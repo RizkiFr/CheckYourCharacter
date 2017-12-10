@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag "bootstrap", media: "all", "data-turbolinks-track" => "reload" %>
-  <%= stylesheet_link_tag "login", media: "all", "data-turbolinks-track" => "reload" %>  
-  <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => "reload" %>
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
-</head>
-<body>
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
   <% end %>
@@ -25,6 +14,55 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "inner-login"}) do |f| %>
             <%= devise_error_messages! %>
             <div class="form-group">
+
+              <div class="form-group">
+              <%= f.text_field :nim, autofocus: true, :class => 'form-control', placeholder: "NIM" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :nama, autofocus: true, :class => 'form-control', placeholder: "Nama Lengkap" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :jenis_kelamin %><br>
+              <%= f.radio_button :jenis_kelamin, 'Laki-laki' %>
+              <%= label :jenis_kelamin_Laki_laki, 'Laki-laki' %>
+              <%= f.radio_button :jenis_kelamin, 'Perempuan' %>
+              <%= label :jenis_kelamin_perempuan, 'Perempuan' %>
+           </div>
+
+            <div class="form-group">
+              <%= f.text_area :alamat, autofocus: true, :class => 'form-control', placeholder: "Alamat" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :tempat_lahir, autofocus: true, :class => 'form-control', placeholder: "Tempat Lahir" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.date_field :tgl_lahir, autofocus: true, :class => 'form-control', placeholder: "Tanggal Lahir" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.telephone_field :no_telepon, autofocus: true, :class => 'form-control', placeholder: "No Telepon" %>
+            </div>  
+
+            <div class="form-group">
+              <%= f.text_field :jurusan , autofocus: true, :class => 'form-control', placeholder: "Jurusan"%>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :fakultas, autofocus: true, :class => 'form-control', placeholder: "Fakultas" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :profile_picture %><br>
+              <%= f.file_field :profile_picture %>
+              <% if f.object.profile_picture? %>
+                <%= image_tag f.object.profile_picture.thumb.url %>
+                <%= f.label :remove_profile_picture %>
+                <%= f.check_box :remove_profile_picture %> 
+              <% end %>
+            </div>
+            
               <%= f.email_field :email, autofocus: true, :class => 'form-control', placeholder: "Username"%>
             </div>
 
@@ -46,6 +84,5 @@
         </div>
      </dic>
   </div>
-</body>
-</html>
+
 

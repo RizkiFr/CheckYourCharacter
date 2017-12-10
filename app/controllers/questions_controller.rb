@@ -4,10 +4,6 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  def show
-    @question = Question.find(params[:id])
-  end
-
   def new
     @question = Question.new
   end
@@ -20,7 +16,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     if @question.save
-      redirect_to @question
+      redirect_to questions_path
     else
       render 'new'
     end
@@ -30,7 +26,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to questions_path
     else
       render 'edit'
     end

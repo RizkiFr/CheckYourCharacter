@@ -20,20 +20,20 @@
         <Cell><Data ss:Type="String">Kepribadian</Data></Cell>
         <Cell><Data ss:Type="String">Keterangan</Data></Cell>
       </Row>
-    <% @students.each do |student| %>
+    <% @users.each do |user| %>
       <Row>
-        <Cell><Data ss:Type="String"><%= student.nim %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.nama %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.jenis_kelamin %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.alamat %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.tempat_lahir %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.tgl_lahir %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= student.no_telepon %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.jurusan %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.fakultas %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.email %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.kepribadian %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student.keterangan %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.nim %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.nama %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.jenis_kelamin %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.alamat %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.tempat_lahir %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.tgl_lahir %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= user.no_telepon %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.jurusan %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.fakultas %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.kepribadian %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.keterangan %></Data></Cell>
       </Row>
     <% end %>
     </Table>

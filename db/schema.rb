@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203151627) do
+ActiveRecord::Schema.define(version: 20171209211617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "jawaban_1"
+    t.string "jawaban_2"
+    t.string "jawaban_3"
+    t.string "jawaban_4"
+    t.string "jawaban_5"
+    t.string "jawaban_6"
+    t.string "jawaban_7"
+    t.string "jawaban_8"
+    t.string "jawaban_9"
+    t.string "jawaban_10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "questions", force: :cascade do |t|
     t.text "pertanyaan"
@@ -57,6 +72,18 @@ ActiveRecord::Schema.define(version: 20171203151627) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nim"
+    t.string "nama"
+    t.string "jenis_kelamin"
+    t.text "alamat"
+    t.string "tempat_lahir"
+    t.date "tgl_lahir"
+    t.string "jurusan"
+    t.string "fakultas"
+    t.string "kepribadian"
+    t.string "no_telepon"
+    t.string "keterangan"
+    t.string "profile_picture"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
