@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
+  before_action :authorize
+  load_and_authorize_resource
 	def index
     @users = User.search(params[:term])
     respond_to do |format|
@@ -34,6 +36,12 @@ class UsersController < ApplicationController
   end
 
   private
+    def authorize
+      if !current_user.has_role? :admin
+        render plain:"No access for you!"
+      end
+    end
+
     def user_params
       params.require(:user).permit(:nim, :nama, :jenis_kelamin, :alamat, :tempat_lahir, :tgl_lahir, :jurusan, :fakultas, :email, :no_telepon,:kepribadian, :keterangan, :profile_picture, :remove_profile_picture, :term)
     end

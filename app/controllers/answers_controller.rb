@@ -1,8 +1,10 @@
 class AnswersController < ApplicationController
 	before_action :authenticate_user!
+	load_and_authorize_resource
 	def index
 		@answers = Question.all
 		@answer = Answer.new
+		@ability = Ability.new(current_user)
 	end
 
 	def create

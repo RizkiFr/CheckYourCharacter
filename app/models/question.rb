@@ -9,4 +9,5 @@ class Question < ApplicationRecord
 	#validates :no, numericality: { only_integer: true }
 
 	#validates :no, uniqueness: true
+	resourcify
 end

@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize
+  load_and_authorize_resource
 	def index
     @questions = Question.all
   end
@@ -40,6 +42,12 @@ class QuestionsController < ApplicationController
   end
 
   private
+    def authorize
+      if !current_user.has_role? :admin
+        render plain:"No access for you!"
+      end
+    end
+
     def question_params
       params.require(:question).permit(:pertanyaan, :pilihan_A, :pilihan_B, :pilihan_C, :pilihan_D, :no)
     end

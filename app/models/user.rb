@@ -1,10 +1,11 @@
 class User < ApplicationRecord
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :nim, presence: true
+	validates :nim, presence: true
 	validates :nama, presence: true
 	validates :jenis_kelamin, presence: true
 	validates :alamat, presence: true
@@ -44,6 +45,12 @@ class User < ApplicationRecord
 	    end
 	  end
 	end
+
+	after_create :assign_role
+
+  def assign_role
+    add_role(:student)
+  end
 
 	private
   def profile_picture_size_validation
