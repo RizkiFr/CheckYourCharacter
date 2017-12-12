@@ -20,14 +20,14 @@
 	<div class="wrapper">
 
 		<div class="nav1">
-			<% if current_user.has_role? :admin %>
+			
 				<%= link_to image_tag("nav1", width: 100), {controller: 'users'} %>
-			<% end %>
+			
 		</div>
 		<div class="nav2">
-			<% if current_user.has_role? :admin %>
+			
 				<%= link_to image_tag("nav2", width: 100), {controller: 'questions'} %>
-			<% end %>
+			
 		</div>
 		<div class="nav3">
 			<%= link_to image_tag("nav3", width: 100), {controller: 'answers'} %>
