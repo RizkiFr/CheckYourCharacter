@@ -11,7 +11,7 @@
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
     </div>
-<h1>Profil <%= current_user.email %></h1>
+<h1>Profil Peserta</h1>
 
 <p>
   <%= image_tag @user.profile_picture_url(:thumb) unless @user.profile_picture.blank? %> 
