@@ -5,6 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'cancancan'
+gem 'rolify'
+
+# gem for design html
+gem 'jquery-rails'
+gem 'font-awesome-rails'
+gem 'autoprefixer-rails'
 # export to pdf
 gem 'wicked_pdf', '~> 1.1'
 gem 'wkhtmltopdf-binary'

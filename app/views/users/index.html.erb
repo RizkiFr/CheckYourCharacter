@@ -1,0 +1,116 @@
+<div class="header">
+  <nav>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to image_tag("logo", width: 100), {controller: 'welcome'} %>
+      </div>
+      <ul class="nav nav-pills">
+         <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
+          <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
+      </ul>
+      <ul class="nav nav-pills navbar-right">
+        <div class="navbar-text pull-right">
+    <div class="head">
+      <div class="navbar-text pull-right">
+      <% if user_signed_in? %>
+        <%= if !current_user.nil?
+              current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+        end%>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+    </div>
+        </div>    
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="content">
+    <div>
+        <%= form_tag(users_path, method: :get) do %>
+          <%= text_field_tag :term, params[:term], :class => "search" %>
+          <%= submit_tag 'Search', nim: nil, :class => "btn btn-danger btn-sm" %>
+        <% end %>
+      </div>
+    <div class="container-fluid">
+      <%= link_to "Export to Excel", users_path(format: "xls") %>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>NIM</th>
+              <th>Nama</th>
+              <th>Jenis Kelamin</th>
+              <th>Alamat</th>
+              <th>Tempat Lahir</th>
+              <th>Tangal Lahir</th>
+              <th>No Telepon</th>
+              <th>Jurusan</th>
+              <th>Fakultas</th>
+              <th>Email</th>
+              <th>Kepribadian</th>
+              <th>Keterangan</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= link_to user.nim, user_path(user) %></td>
+                <td><%= user.nama %></td>
+                <td><%= user.jenis_kelamin %></td>
+                <td><%= user.alamat %></td>
+                <td><%= user.tempat_lahir %></td>
+                <td><%= user.tgl_lahir %></td>
+                <td><%= user.no_telepon %></td>
+                <td><%= user.jurusan %></td>
+                <td><%= user.fakultas %></td>
+                <td><%= user.email %></td>
+                <td><%= user.kepribadian %></td>
+                <td><%= user.keterangan %></td>
+                <td><%= link_to 'Edit', edit_user_path(user) %>
+                  <%= link_to 'Delete', user_path(user),
+                  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        &copy; 2017. Designed by CYC Team.
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

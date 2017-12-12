@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203151627) do
+ActiveRecord::Schema.define(version: 20171210193539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "jawaban_1"
+    t.string "jawaban_2"
+    t.string "jawaban_3"
+    t.string "jawaban_4"
+    t.string "jawaban_5"
+    t.string "jawaban_6"
+    t.string "jawaban_7"
+    t.string "jawaban_8"
+    t.string "jawaban_9"
+    t.string "jawaban_10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "questions", force: :cascade do |t|
     t.text "pertanyaan"
@@ -24,6 +39,17 @@ ActiveRecord::Schema.define(version: 20171203151627) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "no"
+  end
+
+  create_table "roles", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.integer "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], name: "index_roles_on_name"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -57,8 +83,28 @@ ActiveRecord::Schema.define(version: 20171203151627) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nim"
+    t.string "nama"
+    t.string "jenis_kelamin"
+    t.text "alamat"
+    t.string "tempat_lahir"
+    t.date "tgl_lahir"
+    t.string "jurusan"
+    t.string "fakultas"
+    t.string "kepribadian"
+    t.string "no_telepon"
+    t.string "keterangan"
+    t.string "profile_picture"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
 end

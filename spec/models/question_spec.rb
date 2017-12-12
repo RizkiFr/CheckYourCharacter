@@ -4,8 +4,8 @@ RSpec.describe Question, type: :model do
   it "has a question" do # yep, you can totally use 'it'
     question = Question.create!(pertanyaan: "Apa warna favorit anda") # creating a new Question 'instance'
     expect(question.pertanyaan).to eq("Apa warna favorit anda") # this is our expectation
-    question = Question.create!(no: "9") # creating a new no 'instance'
-    expect(question.no).to eq("9") # this is our expectation
+    question = Question.create!(no: 1) # creating a new no 'instance'
+    expect(question.no).to eq(1) # this is our expectation
     question = Question.create!(pilihan_A: "Merah") # creating a choice a 'instance'
     expect(question.pilihan_A).to eq("Merah") # this is our expectation
     question = Question.create!(pilihan_B: "Biru") # creating a new choice b 'instance'

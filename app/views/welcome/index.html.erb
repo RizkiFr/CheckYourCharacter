@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <<<<<<< HEAD
@@ -20,31 +21,37 @@
 	  <% end %>
 		<%= stylesheet_link_tag "style", media: "all", "data-turbolinks-track" => "reload" %>
 	 	<p class="navbar-text pull-right">
+=======
+
+		<div class="head">
+			<div class="navbar-text pull-right">
+>>>>>>> development
 			<% if user_signed_in? %>
-			  Logged in as <strong><%= current_user.email %></strong>.
-				 <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-				 <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+			  <%= if !current_user.nil?
+			        current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+			  end%>
+			  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+				<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 			<% else %>
-			  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+			  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
 			  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 			<% end %>
-		</p>
-		<div class="head">
+		</div>
 			<div class="logo">
 				<%= image_tag "logo" %>
 			</div>
 		</div>
-	</head>
+
 	<div class="wrapper">
-	<header>
+
 		<div class="nav1">
-			<%= link_to image_tag("nav1", width: 100), {controller: 'students'} %>
+				<%= link_to image_tag("nav1", width: 100), {controller: 'users'} %>
 		</div>
 		<div class="nav2">
-			<%= link_to image_tag("nav2", width: 100), {controller: 'questions'} %>
+				<%= link_to image_tag("nav2", width: 100), {controller: 'questions'} %>
 		</div>
 		<div class="nav3">
-			<%= image_tag "nav3", width:100 %>
+			<%= link_to image_tag("nav3", width: 100), {controller: 'answers'} %>
 		</div>
 		<div class="nav4">
 			<%= image_tag "nav4", width:100 %>
@@ -58,7 +65,10 @@
 				<li><a href="#">Login</a></li>
 			</ul>
 		</nav-->
-	</header>
+
 	</div>
+<<<<<<< HEAD
 >>>>>>> eb7b82561a155b08a062cbc9401452ca1012be8a
 </html>
+=======
+>>>>>>> development
