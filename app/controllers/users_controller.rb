@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
-  before_action :authorize
-  load_and_authorize_resource
+  before_action :authorize, except: [:show] 
+  load_and_authorize_resource :except => [:show]
 	def index
     @users = User.search(params[:term])
     respond_to do |format|
