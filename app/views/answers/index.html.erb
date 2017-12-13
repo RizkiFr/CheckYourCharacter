@@ -1,11 +1,28 @@
+<div class="header-page">
+<div class="container">
+    </div>
+    <div class="nav-page">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		<%= image_tag("logo.png",width:110, :alt => "logo")%>
+		</div>
+	
+<ul class="nav nav-pills navbar-right">
 <% if user_signed_in? %>
   <%= if !current_user.nil?
 			    current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
 			  end%>
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  </ul>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
+</div>
+</div>
+</div>
+<div class="body-page">
 <%= render 'form' %>
+</div>
