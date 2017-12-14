@@ -33,7 +33,7 @@ class User < ApplicationRecord
 	  if term
 	    where('nim LIKE ?', "%#{term}%")
 	  else
-	    all
+	    with_role :student
 	  end
 	end
 
