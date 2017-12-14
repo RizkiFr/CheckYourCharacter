@@ -4,14 +4,14 @@
         <%= if !current_user.nil?
               current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
         end%>
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+        <%= link_to "Profil", current_user, :class => 'navbar-link' %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
     </div>
-<h1>Profil <%= current_user.email %></h1>
+<h1>Profil Peserta</h1>
 
 <p>
   <%= image_tag @user.profile_picture_url(:thumb) unless @user.profile_picture.blank? %> 
@@ -77,5 +77,14 @@
   <%= @user.keterangan %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+<%= link_to 'Edit profile', edit_user_registration_path %> <br>
+<% if current_user.has_role? :admin %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
+<% if current_user.has_role? :admin %>
+  <%= link_to 'Back', users_path %>
+<% end %>
+<% if current_user.has_role? :student %>
+  <%= link_to 'Back', welcome_path %>
+<% end %>

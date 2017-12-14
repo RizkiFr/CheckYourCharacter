@@ -12,8 +12,12 @@
   <%= if !current_user.nil?
 			    current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
 			  end%>
+<<<<<<< HEAD
   
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+=======
+  <%= link_to "Profil", current_user, :class => 'navbar-link' %> |
+>>>>>>> 8aa8418ad70d87e9714044ffac8e8a51b69a63be
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
   </ul>
 <% else %>
