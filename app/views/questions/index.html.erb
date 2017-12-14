@@ -1,11 +1,11 @@
-<div class="header">
-  <nav>
+<div class="header-page">
+  <div class="nav-page">
     <div class="container-fluid">
       <div class="navbar-header">
-        <%= link_to image_tag("logo", width: 100), {controller: 'welcome'} %>
+        <%= link_to image_tag("logo", :class => 'navbar-logo'), {controller: 'welcome'} %>
       </div>
       <ul class="nav nav-pills">
-         <li role="presentation"><%= link_to 'Pengguna', students_path %></li>
+         <li role="presentation"><%= link_to 'Pengguna', students_path,:class => 'pengguna' %></li>
           <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
       </ul>
       <ul class="nav nav-pills navbar-right">
@@ -14,18 +14,22 @@
             <%= if !current_user.nil?
                     current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
                   end%>
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+<<<<<<< HEAD
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+=======
+            <%= link_to "Profil", current_user, :class => 'navbar-link' %> |
+>>>>>>> 8aa8418ad70d87e9714044ffac8e8a51b69a63be
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
             <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
           <% end %>
         </div>    
       </ul>
     </div>
-  </nav>
+  </div>
 </div>
-<div class="content">
+<div class="body-page">
     <div class="container-fluid">
       <%= link_to 'Tambah Data', new_question_path %>
       <div class="table-responsive">

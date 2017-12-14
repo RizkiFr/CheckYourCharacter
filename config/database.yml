@@ -16,9 +16,17 @@
 #
 default: &default
   adapter: postgresql
-  username: rif
+  username: fr
   host: localhost
+<<<<<<< HEAD
   password: rif
+=======
+<<<<<<< HEAD
+  password: 4297
+=======
+  password: 123
+>>>>>>> 4480fee5012bb79dc481e19ed01168f644a3ce90
+>>>>>>> 78dceecbe2e77327983b77ce2679484db88d65a7
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
