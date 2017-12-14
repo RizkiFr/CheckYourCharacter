@@ -15,7 +15,7 @@
         <%= if !current_user.nil?
               current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
         end%>
-        <%= link_to "Profil", current_user, :class => 'navbar-link' %> |
+        <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
@@ -30,12 +30,12 @@
     <div>
         <%= form_tag(users_path, method: :get) do %>
           <%= text_field_tag :term, params[:term], :class => "search" %>
-          <%= submit_tag 'Search', nim: nil, :class => "btn btn-danger btn-sm" %>
+          <%= submit_tag 'Search', nim: nil, :class => "btn btn-info btn-sm" %>
         <% end %>
       </div>
     <div class="container-fluid">
     
-      <%= link_to "Export to Excel", users_path(format: "xls")%>
+      
       
       <div class="table-responsive">
         <table class="table table-bordered table-striped">
@@ -59,7 +59,7 @@
           <tbody>
             <% @users.each do |user| %>
               <tr>
-                <td><%= link_to user.nim, user_path(user) %></td>
+                <td><%= link_to user.nim, user_path(user), :class =>'nim' %></td>
                 <td><%= user.nama %></td>
                 <td><%= user.jenis_kelamin %></td>
                 <td><%= user.alamat %></td>
@@ -80,6 +80,7 @@
         </table>
       </div>
     </div>
+    <%= link_to "Export to Excel", users_path(format: "xls"), :class => 'excel' %>
 </div>
 <div class="footer">
     <div class="container">
