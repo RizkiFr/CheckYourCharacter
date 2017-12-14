@@ -1,6 +1,31 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+<<<<<<< HEAD
+	<body>
+		<h1>Selamat Datang di CYC(Check Your Character)</h1>
+		<nav>
+			<ul>
+				<li><%= link_to 'Data Mahasiswa', controller: 'students' %></li>
+				<li><%= link_to 'Data Pertanyaan', controller: 'questions' %></li>
+			</ul>
+		</nav>
+	</body>
+=======
+	<head>
+		<% if notice %>
+	    <p class="alert alert-success"><%= notice %></p>
+	  <% end %>
+	  <% if alert %>
+	    <p class="alert alert-danger"><%= alert %></p>
+	  <% end %>
+		<%= stylesheet_link_tag "style", media: "all", "data-turbolinks-track" => "reload" %>
+	 	<p class="navbar-text pull-right">
+=======
 
 		<div class="head">
 			<div class="navbar-text pull-right">
+>>>>>>> development
 			<% if user_signed_in? %>
 			  <%= if !current_user.nil?
 			        current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
@@ -53,3 +78,8 @@
 		</nav-->
 
 	</div>
+<<<<<<< HEAD
+>>>>>>> eb7b82561a155b08a062cbc9401452ca1012be8a
+</html>
+=======
+>>>>>>> development
