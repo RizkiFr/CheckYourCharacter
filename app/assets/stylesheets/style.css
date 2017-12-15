@@ -214,17 +214,31 @@ a{
 	color: black;
 }
 .excel{
-	position:relative;
-    padding:6px 15px;
-    left:0px;
-    border:2px solid #4cae4c;
-    background-color:#5cb85c;
-    color:#fafafa;
-    border-radius: 5px;
     margin-left: 15px;
 }
-.excel:hover{
-	text-decoration: none;
-	color: white;
-	background-color:#4cae4c;
+.form{
+	position: relative;
+}
+.form-new{
+	margin-top: 10%;
+}
+.outter-form{
+     padding: 20px;
+     background: white;
+     position: relative;
+     border-radius: 5px;
+}
+.foto{
+
+}
+.mulai{
+	margin-top: 5%;
+}
+.logo-daftar{
+	position: absolute;
+     top: -50px;
+     left: 190px;
+}
+.signup{
+	margin-top: 50px;
 }
