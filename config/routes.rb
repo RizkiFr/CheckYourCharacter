@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :answers 
 
   resources :users
+
+  resources :admin
   
   resources :questions
 
