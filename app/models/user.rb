@@ -11,8 +11,6 @@ class User < ApplicationRecord
 	validates :alamat, presence: true
 	validates :tempat_lahir, presence: true
 	validates :tgl_lahir, presence: true
-	validates :jurusan, presence: true
-	validates :fakultas, presence: true
 	validates :email, presence: true
 	validates :no_telepon, presence: true
 

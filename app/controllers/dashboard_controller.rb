@@ -1,10 +1,10 @@
-class AdminController < ApplicationController
+class DashboardController < ApplicationController
 	before_action :authenticate_user!
   before_action :authorize
 
   # get "admin"
   def index
-  	@users = User.with_role :admin
+  	
   end
 
   private

@@ -40,12 +40,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [ :email, :password, :password_confirmation, :nim, :nama, :jenis_kelamin, :alamat, :tempat_lahir, :tgl_lahir, :jurusan, :fakultas, :no_telepon,:kepribadian, :keterangan, :profile_picture, :remove_profile_picture])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [ :email, :password, :password_confirmation, :nim, :nama, :jenis_kelamin, :alamat, :tempat_lahir, :tgl_lahir, :no_telepon,:kepribadian, :keterangan, :profile_picture, :remove_profile_picture])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password, :nim, :nama, :jenis_kelamin, :alamat, :tempat_lahir, :tgl_lahir, :jurusan, :fakultas,:no_telepon,:kepribadian, :keterangan, :profile_picture, :remove_profile_picture])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password, :nim, :nama, :jenis_kelamin, :alamat, :tempat_lahir, :tgl_lahir,:no_telepon,:kepribadian, :keterangan, :profile_picture, :remove_profile_picture])
   end
 
   # The path used after sign up.

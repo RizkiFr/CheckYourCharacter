@@ -2,6 +2,10 @@ class AnswersController < ApplicationController
 	before_action :authenticate_user!
 	load_and_authorize_resource
 	def index
+		@answers = Answer.all
+	end
+
+	def new
 		@answers = Question.all
 		@answer = Answer.new
 	end
@@ -9,9 +13,11 @@ class AnswersController < ApplicationController
 	def create
 		@answer = Answer.new(answer_params)
 		@user = current_user.update_attributes(:kepribadian => "Sangat Bertanggung Jawab")
-    if @answer.save
-	    redirect_to @answer
-	  end
+	    if @answer.save
+	      redirect_to @answer
+	    else
+	    	render 'new'
+	    end
 	end
 
 	def show

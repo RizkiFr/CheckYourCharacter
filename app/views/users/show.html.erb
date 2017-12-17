@@ -1,90 +1,118 @@
-    <div class="head">
-      <div class="navbar-text pull-right">
+<div class="header-page">
+  <div class="nav-page">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to image_tag("logo",:class => 'navbar-logo'), {controller: 'welcome'} %>
+      </div>
+      <ul class="nav nav-pills">
+         <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
+          <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
+      </ul>
+      <ul class="nav nav-pills navbar-right">
+        <div class="navbar-text pull-right">
+   
       <% if user_signed_in? %>
         <%= if !current_user.nil?
               current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
         end%>
-        <%= link_to "Profil", current_user, :class => 'navbar-link' %> |
+        <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
+      
+      </ul>
     </div>
-<h1>Profil Peserta</h1>
+  </div>
+</div>
+<div class="body-page">
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3 form">
+      <div class="outter-form">
+          <div class="text-center foto">
+             <%= image_tag @user.profile_picture_url(:thumb), :class => "img-rounded" unless @user.profile_picture.blank? %> 
+          </div>
 
-<p>
-  <%= image_tag @user.profile_picture_url(:thumb) unless @user.profile_picture.blank? %> 
-</p>
+<h2 class="text-center title-login">Profil Peserta</h2>
+<div class="table-responsive">
 
-<p>
-  <strong>NIM:</strong>
-  <%= @user.nim %>
-</p>
+  <table class="table table-striped">
+  
+  <tbody>
 
-<p>
-  <strong>Nama:</strong>
-  <%= @user.nama %>
-</p>
+  <tr>
+    <td><strong>ID:</strong></td>
+    <td><%= @user.nim %></td>
+  </tr>
 
-<p>
-  <strong>Jenis Kelamin:</strong>
-  <%= @user.jenis_kelamin %>
-</p>
+  <tr>
+    <td><strong>Nama:</strong></td>
+    <td><%= @user.nama %></td>
+  </tr>
 
-<p>
-  <strong>Alamat:</strong>
-  <%= @user.alamat %>
-</p>
+  <tr>
+    <td><strong>Jenis Kelamin:</strong></td>
+    <td><%= @user.jenis_kelamin %></td>
+  </tr>
 
-<p>
-  <strong>Tempat Lahir:</strong>
-  <%= @user.tempat_lahir %>
-</p>
+  <tr>
+    <td><strong>Alamat:</strong></td>
+    <td><%= @user.alamat %></td>
+  </tr>
 
-<p>
-  <strong>Tanggal Lahir:</strong>
-  <%= @user.tgl_lahir %>
-</p>
+  <tr>
+    <td><strong>Tempat Lahir:</strong></td>
+    <td><%= @user.tempat_lahir %></td>
+  </tr>
 
-<p>
-  <strong>No Telepon:</strong>
-  <%= @user.no_telepon %>
-</p>
+  <tr>
+    <td><strong>Tanggal Lahir:</strong></td>
+    <td><%= @user.tgl_lahir %></td>
+  </tr>
 
-<p>
-  <strong>Jurusan:</strong>
-  <%= @user.jurusan %>
-</p>
+  <tr>
+    <td><strong>No Telepon:</strong></td>
+    <td><%= @user.no_telepon %></td>
+  </tr>
 
-<p>
-  <strong>Fakultas:</strong>
-  <%= @user.fakultas %>
-</p>
+  <tr>
+    <td><strong>Email:</strong></td>
+    <td><%= @user.email %></td>
+  </tr>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <tr>
+    <td><strong>Kepribadian:</strong></td>
+    <td><%= @user.kepribadian %></td>
+  </tr>
 
-<p>
-  <strong>Kepribadian:</strong>
-  <%= @user.kepribadian %>
-</p>
+  <tr>
+    <td><strong>Keterangan:</strong></td>
+    <td><%= @user.keterangan %></td>
+  </tr>
+  </tbody>
+ </table>
 
-<p>
-  <strong>Keterangan:</strong>
-  <%= @user.keterangan %>
-</p>
-
-
-<%= link_to 'Edit profile', edit_user_registration_path %> <br>
+</div>
+<div class="text-center">
+<%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
 <% if current_user.has_role? :admin %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-info" %> 
 <% end %>
 <% if current_user.has_role? :admin %>
-  <%= link_to 'Back', users_path %>
+  <%= link_to 'Back', users_path, :class => "btn btn-success" %>
 <% end %>
 <% if current_user.has_role? :student %>
-  <%= link_to 'Back', welcome_path %>
+  <%= link_to 'Back', welcome_path, :class => "btn btn-success" %>
 <% end %>
+</div>
+
+        </div>
+      </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        &copy; 2017. Designed by CYC Team.
+    </div>
+</div>
