@@ -5,8 +5,15 @@
         <%= link_to image_tag("logo",:class => 'navbar-logo'), {controller: 'welcome'} %>
       </div>
       <ul class="nav nav-pills">
-         <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
+        <% if current_user.has_role? :admin %>
+          <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
+          <li role="presentation"><%= link_to 'Admin', controller: 'admin' %></li>
           <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
+          <li role="presentation"><%= link_to 'Artikel', articles_path %></li>
+        <% else %>
+          <li role="presentation"><%= link_to 'Tes Karakter', answers_path %></li>
+          <li role="presentation"><%= link_to 'Info Psikologi', info_path %></li>
+        <% end %>
       </ul>
       <ul class="nav nav-pills navbar-right">
         <div class="navbar-text pull-right">
@@ -33,80 +40,75 @@
           <div class="text-center foto">
              <%= image_tag @user.profile_picture_url(:thumb), :class => "img-rounded" unless @user.profile_picture.blank? %> 
           </div>
+          <h2 class="text-center title-login">Profil Peserta</h2>
+          <div class="table-responsive">
 
-<h2 class="text-center title-login">Profil Peserta</h2>
-<div class="table-responsive">
+            <table class="table table-striped">
+            
+            <tbody>
 
-  <table class="table table-striped">
-  
-  <tbody>
+            <tr>
+              <td><strong>ID:</strong></td>
+              <td><%= @user.nim %></td>
+            </tr>
 
-  <tr>
-    <td><strong>ID:</strong></td>
-    <td><%= @user.nim %></td>
-  </tr>
+            <tr>
+              <td><strong>Nama:</strong></td>
+              <td><%= @user.nama %></td>
+            </tr>
 
-  <tr>
-    <td><strong>Nama:</strong></td>
-    <td><%= @user.nama %></td>
-  </tr>
+            <tr>
+              <td><strong>Jenis Kelamin:</strong></td>
+              <td><%= @user.jenis_kelamin %></td>
+            </tr>
 
-  <tr>
-    <td><strong>Jenis Kelamin:</strong></td>
-    <td><%= @user.jenis_kelamin %></td>
-  </tr>
+            <tr>
+              <td><strong>Alamat:</strong></td>
+              <td><%= @user.alamat %></td>
+            </tr>
 
-  <tr>
-    <td><strong>Alamat:</strong></td>
-    <td><%= @user.alamat %></td>
-  </tr>
+            <tr>
+              <td><strong>Tempat Lahir:</strong></td>
+              <td><%= @user.tempat_lahir %></td>
+            </tr>
 
-  <tr>
-    <td><strong>Tempat Lahir:</strong></td>
-    <td><%= @user.tempat_lahir %></td>
-  </tr>
+            <tr>
+              <td><strong>Tanggal Lahir:</strong></td>
+              <td><%= @user.tgl_lahir %></td>
+            </tr>
 
-  <tr>
-    <td><strong>Tanggal Lahir:</strong></td>
-    <td><%= @user.tgl_lahir %></td>
-  </tr>
+            <tr>
+              <td><strong>No Telepon:</strong></td>
+              <td><%= @user.no_telepon %></td>
+            </tr>
 
-  <tr>
-    <td><strong>No Telepon:</strong></td>
-    <td><%= @user.no_telepon %></td>
-  </tr>
+            <tr>
+              <td><strong>Email:</strong></td>
+              <td><%= @user.email %></td>
+            </tr>
 
-  <tr>
-    <td><strong>Email:</strong></td>
-    <td><%= @user.email %></td>
-  </tr>
+            <tr>
+              <td><strong>Kepribadian:</strong></td>
+              <td><%= @user.kepribadian %></td>
+            </tr>
 
-  <tr>
-    <td><strong>Kepribadian:</strong></td>
-    <td><%= @user.kepribadian %></td>
-  </tr>
+            <tr>
+              <td><strong>Keterangan:</strong></td>
+              <td><%= @user.keterangan %></td>
+            </tr>
+            </tbody>
+           </table>
 
-  <tr>
-    <td><strong>Keterangan:</strong></td>
-    <td><%= @user.keterangan %></td>
-  </tr>
-  </tbody>
- </table>
-
-</div>
-<div class="text-center">
-<%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
-<% if current_user.has_role? :admin %>
-  <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-info" %> 
-<% end %>
-<% if current_user.has_role? :admin %>
-  <%= link_to 'Back', users_path, :class => "btn btn-success" %>
-<% end %>
-<% if current_user.has_role? :student %>
-  <%= link_to 'Back', welcome_path, :class => "btn btn-success" %>
-<% end %>
-</div>
-
+          </div>
+          <div class="text-center">
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
+            <% if current_user.has_role? :admin %>
+              <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-info" %> 
+              <%= link_to 'Back', users_path, :class => "btn btn-success" %>
+            <% else %>
+              <%= link_to 'Back', welcome_path, :class => "btn btn-success" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

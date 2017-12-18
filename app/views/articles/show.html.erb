@@ -30,9 +30,8 @@
 </div>
 <div class="body-page">
     <div class="container-fluid">
-			<h1>Edit Pertanyaan</h1>	
-			<%= render 'form' %>
-			<%= link_to 'Back', questions_path %>
+      <h1><%= @article.title %></h1><br>
+      <%= @article.text %>
     </div>
 </div>
 <div class="footer">
@@ -40,4 +39,3 @@
         &copy; 2017. Designed by CYC Team.
     </div>
 </div>
-

@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :users
 
   resources :admin
-  
+
+  resources :dashboard
+
+	resources :articles
+
   resources :questions
 
   root 'welcome#index'
