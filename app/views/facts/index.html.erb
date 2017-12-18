@@ -36,8 +36,8 @@
   <div class="col-md-6 col-md-offset-3 mulai">
     <% @facts.each do |fact| %>
     <div style="border-bottom: 1px solid blue">
-      <h1><%= link_to fact.title, fact_path(fact) %></h1><br>
-      <%= fact.text %>
+      <h1><%= fact.title %></h1><br>
+      <%= fact.text %> <%= link_to 'Read More', fact_path(fact) %>
     </div>
     <% end %>
   </div>
