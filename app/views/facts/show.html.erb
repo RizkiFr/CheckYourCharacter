@@ -5,10 +5,8 @@
         <%= link_to image_tag("logo", :class => 'navbar-logo'), {controller: 'welcome'} %>
       </div>
       <ul class="nav nav-pills">
-        <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
-        <li role="presentation"><%= link_to 'Admin', controller: 'admin' %></li>
-        <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
-        <li role="presentation"><%= link_to 'Artikel', articles_path %></li>
+        <li role="presentation"><%= link_to 'Tes Karakter', answers_path %></li>
+        <li role="presentation"><%= link_to 'Info Karakter', facts_path %></li>
       </ul>
       <ul class="nav nav-pills navbar-right">
         <div class="navbar-text pull-right">
@@ -35,11 +33,10 @@
   </div>
 </div>
 <div class="body-page">
-  <div class="container-fluid">
-		<h1>Edit <%= current_user.email %></h1>
-		<%= render 'form' %>
-		<%= link_to 'Back', users_path %>
-  </div>
+    <div class="container-fluid">
+      <h1><%= @fact.title %></h1><br>
+      <%= @fact.text %>
+    </div>
 </div>
 <div class="footer">
     <div class="container">

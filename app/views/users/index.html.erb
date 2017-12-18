@@ -14,9 +14,15 @@
         <div class="navbar-text pull-right">
    
       <% if user_signed_in? %>
-        <%= if !current_user.nil?
-              current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
-        end%>
+        <% if current_user.has_role? :admin %>
+          <%= if !current_user.nil?
+                current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+          end%>
+        <% else %>
+          <%= if !current_user.nil?
+                current_user.email + ' (user)'
+          end%>     
+        <% end %>
         <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>

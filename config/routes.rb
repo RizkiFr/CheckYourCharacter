@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
 	resources :articles
 
+	resources :facts
+
   resources :questions
 
   root 'welcome#index'

@@ -2,7 +2,7 @@
   <div class="nav-page">
     <div class="container-fluid">
       <div class="navbar-header">
-        <%= link_to image_tag("logo", :class => 'navbar-logo'), {controller: 'welcome'} %>
+        <%= link_to image_tag("logo",:class => 'navbar-logo'), {controller: 'welcome'} %>
       </div>
       <ul class="nav nav-pills">
         <li role="presentation"><%= link_to 'Tes Karakter', answers_path %></li>
@@ -10,7 +10,8 @@
       </ul>
       <ul class="nav nav-pills navbar-right">
         <div class="navbar-text pull-right">
-           <% if user_signed_in? %>
+   
+       <% if user_signed_in? %>
         <% if current_user.has_role? :admin %>
           <%= if !current_user.nil?
                 current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
@@ -26,40 +27,22 @@
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
-        </div>    
+      
       </ul>
     </div>
   </div>
 </div>
 <div class="body-page">
-    <div class="container-fluid">
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Text</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @articles.each do |article| %>
-              <tr>
-                <td><%= link_to article.title, article_path(article) %></td>
-                <td><%= article.text %></td>
-                <td align="center">
-                  <%= link_to 'Edit', edit_article_path(article) %>
-                  <%= link_to 'Delete', article_path(article),
-                  method: :delete, data: { confirm: 'Are you sure?' } %>    
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <%= link_to 'Tambah Data', new_article_path, :class => "btn btn-success" %>
-      </div>
+  <div class="col-md-6 col-md-offset-3 mulai">
+    <% @facts.each do |fact| %>
+    <div style="border-bottom: 1px solid blue">
+      <h1><%= link_to fact.title, fact_path(fact) %></h1><br>
+      <%= fact.text %>
     </div>
+    <% end %>
+  </div>
 </div>
+
 <div class="footer">
     <div class="container">
         &copy; 2017. Designed by CYC Team.
