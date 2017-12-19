@@ -19,7 +19,6 @@ class User < ApplicationRecord
 	validates :nim, numericality: { only_integer: true }
 	validates :no_telepon, numericality: { only_integer: true }
 
-	validates :nim, length: { is: 10 }
 
 	validates_presence_of :profile_picture
 

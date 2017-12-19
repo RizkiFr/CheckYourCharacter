@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize, except: [:show] 
   load_and_authorize_resource :except => [:show]
 	def index
-    @users = User.search(params[:term])
+    @users = User.search(params[:term]).with_role :student
     respond_to do |format|
       format.html
       format.xls # { send_data @products.to_csv(col_sep: "\t") }

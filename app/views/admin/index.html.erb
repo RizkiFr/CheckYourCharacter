@@ -67,7 +67,11 @@
         </table>
       </div>
     </div>
-    <%= link_to "Export to Excel", users_path(format: "xls"), :class => 'btn btn-success excel' %>
+    <div>
+      
+    <div class = "btn btn-success excel" style="margin-bottom: 500px">
+      <%= link_to "Export to Excel", controller: 'admin', format: "xls" %>
+    </div>
 </div>
 <div class="footer">
     <div class="container">
