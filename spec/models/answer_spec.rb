@@ -22,5 +22,7 @@ RSpec.describe Answer, type: :model do
     expect(answer.jawaban_9).to eq('a') # this is our expectation
     answer = Answer.create!(jawaban_10: 'a') # creating a new Question 'instance'
     expect(answer.jawaban_10).to eq('a') # this is our expectation
+    answer = Answer.create!(user_id: 1) # creating a new Question 'instance'
+    expect(answer.user_id).to eq(1) # this is our expectation
     end
 end
