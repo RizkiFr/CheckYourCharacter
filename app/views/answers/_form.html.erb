@@ -2,17 +2,17 @@
   <% @count = 1 %>
   <% @answers.each do |answer| %>
     <%= answer.no %>
-    <%= answer.pertanyaan %><br>
-    <%= f.radio_button :"jawaban_#{@count}", 'A' %>
-    <%= answer.pilihan_A %>
-    <%= f.radio_button :"jawaban_#{@count}", 'B' %>
-    <%= answer.pilihan_B %>
-    <%= f.radio_button :"jawaban_#{@count}", 'C' %>  
-    <%= answer.pilihan_C %>
-    <%= f.radio_button :"jawaban_#{@count}", 'D' %>
-    <%= answer.pilihan_D %><br><br>
+    <%= f.radio_button :"jawaban_#{@count}", 'Dominance' %>
+    <%= answer.dominance %>
+    <%= f.radio_button :"jawaban_#{@count}", 'Influence' %>
+    <%= answer.influence %>
+    <%= f.radio_button :"jawaban_#{@count}", 'Steadiness' %>  
+    <%= answer.steadiness %>
+    <%= f.radio_button :"jawaban_#{@count}", 'Compliance' %>
+    <%= answer.compliance %><br><br>
     <% @count += 1 %>
   <% end %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit %>
 <% end %>
 

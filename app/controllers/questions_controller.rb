@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :authorize
   load_and_authorize_resource
 	def index
-    @questions = Question.all
+    @questions = Question.all.order(:no)
   end
 
   def new
@@ -49,6 +49,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:pertanyaan, :pilihan_A, :pilihan_B, :pilihan_C, :pilihan_D, :no)
+      params.require(:question).permit(:dominance, :influence, :steadiness, :compliance, :no)
     end
 end

@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+    has_many :answer
+
 	validates :nim, presence: true
 	validates :nama, presence: true
 	validates :jenis_kelamin, presence: true

@@ -46,7 +46,11 @@
           <div class="text-center foto">
              <%= image_tag @user.profile_picture_url(:thumb), :class => "img-rounded" unless @user.profile_picture.blank? %> 
           </div>
-          <h2 class="text-center title-login">Profil Peserta</h2>
+          <% if current_user.has_role? :admin %>
+            <h2 class="text-center title-login">Profil Admin</h2>
+          <% else %>
+            <h2 class="text-center title-login">Profil Peserta</h2>
+          <% end %>
           <div class="table-responsive">
 
             <table class="table table-striped">

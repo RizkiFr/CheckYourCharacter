@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218004840) do
+ActiveRecord::Schema.define(version: 20171221024456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20171218004840) do
     t.string "jawaban_10"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "jawaban_11"
+    t.string "jawaban_12"
+    t.string "jawaban_13"
+    t.string "jawaban_14"
+    t.string "jawaban_15"
+    t.string "jawaban_16"
+    t.string "jawaban_17"
+    t.string "jawaban_18"
+    t.string "jawaban_19"
+    t.string "jawaban_20"
+    t.string "jawaban_21"
+    t.string "jawaban_22"
+    t.string "jawaban_23"
+    t.string "jawaban_24"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -38,14 +54,13 @@ ActiveRecord::Schema.define(version: 20171218004840) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "pertanyaan"
-    t.string "pilihan_A"
-    t.string "pilihan_B"
-    t.string "pilihan_C"
-    t.string "pilihan_D"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "no"
+    t.string "dominance"
+    t.string "influence"
+    t.string "steadiness"
+    t.string "compliance"
   end
 
   create_table "roles", id: :serial, force: :cascade do |t|
@@ -112,4 +127,5 @@ ActiveRecord::Schema.define(version: 20171218004840) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "answers", "users"
 end

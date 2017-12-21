@@ -22,7 +22,6 @@
                 current_user.email + ' (user)'
           end%>     
         <% end %>
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
@@ -41,11 +40,10 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Pertanyaan</th>
-              <th>Pilihan A</th>
-              <th>Pilihan B</th>
-              <th>Pilihan C</th>
-              <th>Pilihan D</th>
+              <th>Dominance</th>
+              <th>Influence</th>
+              <th>Steadiness</th>
+              <th>Compliance</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -53,11 +51,10 @@
             <% @questions.each do |question| %>
               <tr>
                 <td><%= question.no %></td>
-                <td><%= question.pertanyaan %></td>
-                <td><%= question.pilihan_A %></td>
-                <td><%= question.pilihan_B %></td>
-                <td><%= question.pilihan_C %></td>
-                <td><%= question.pilihan_D %></td>
+                <td><%= question.dominance %></td>
+                <td><%= question.influence %></td>
+                <td><%= question.steadiness %></td>
+                <td><%= question.compliance %></td>
                 <td align="center"><%= link_to 'Edit', edit_question_path(question) %>
                   <%= link_to 'Delete', question_path(question),
                   method: :delete, data: { confirm: 'Are you sure?' } %>    

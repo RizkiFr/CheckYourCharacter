@@ -6,6 +6,7 @@
       </div>
       <ul class="nav nav-pills">
         <li role="presentation"><%= link_to 'Tes Karakter', answers_path %></li>
+        <li role="presentation"><%= link_to 'Info Karakter', facts_path %></li>
       </ul>
       <ul class="nav nav-pills navbar-right">
         <div class="navbar-text pull-right">
@@ -32,6 +33,7 @@
   </div>
 </div>
 <div class="body-page">
+  <h3>Mana yang paling menggambarkan diri anda</h3>
   <%= render 'form' %>
   <%= link_to 'Back', answers_path %>
 </div>
