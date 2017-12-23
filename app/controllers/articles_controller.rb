@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to articles_path
+      redirect_to articles_path, notice: 'Data berhasil di simpan'
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to articles_path
+      redirect_to articles_path, notice: 'Data berhasil di ubah'
     else
       render 'edit'
     end
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
   private
   	def authorize
       if !current_user.has_role? :admin
-        render plain:"No access for you!"
+        redirect_to welcome_path, alert: "Anda tidak bisa mengakses halaman tersebut"
       end
     end
 

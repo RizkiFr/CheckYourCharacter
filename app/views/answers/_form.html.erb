@@ -1,7 +1,14 @@
 <%= form_for @answer, url: {controller: "answers", action: "create"} do |f| %>
+  <% if @answer.errors.any? %>
+    <div id="error_explanation">
+      <h4>
+        Tidak boleh ada jawaban yang kosong
+      </h4>
+    </div>
+  <% end %>
   <% @count = 1 %>
   <% @answers.each do |answer| %>
-    <%= answer.no %>
+    <%= answer.no %>. 
     <%= f.radio_button :"jawaban_#{@count}", 'Dominance' %>
     <%= answer.dominance %>
     <%= f.radio_button :"jawaban_#{@count}", 'Influence' %>
@@ -12,7 +19,7 @@
     <%= answer.compliance %><br><br>
     <% @count += 1 %>
   <% end %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit %>
 <% end %>
 

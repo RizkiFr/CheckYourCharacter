@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to users_path
+      redirect_to users_path, notice: 'Data berhasil di ubah'
     else
       render 'edit'
     end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   private
     def authorize
       if !current_user.has_role? :admin
-        render plain:"No access for you!"
+        redirect_to welcome_path, alert: "Anda tidak bisa mengakses halaman tersebut"
       end
     end
 

@@ -8,13 +8,14 @@ class AnswersController < ApplicationController
 
 	def new
 		@user = current_user
-		@answers = Question.all
+		@answers = Question.all.order(:no)
 		@answer = Answer.new
 	end
 
 	def create
 		@user = current_user
 		@answer = Answer.new(answer_params)
+		@answers = Question.all.order(:no)
 	    if @answer.save
 	      redirect_to @answer
 	    else
@@ -279,6 +280,20 @@ class AnswersController < ApplicationController
 			@kepribadian="Steadiness"
 		elsif @compliance>@influence && @compliance>@dominance && @compliance>@steadiness
 			@kepribadian="Compliance"
+		elsif @dominance=@influence && @dominance>@steadiness && @dominance>@compliance	&& @influence>@steadiness && @influence>@compliance
+			@kepribadian="Antara Dominance & Influence"
+		elsif @dominance=@steadiness && @dominance>@influence && @dominance>@compliance	&& @influence<@steadiness && @steadiness>@compliance
+			@kepribadian="Antara Dominance & Steadiness"
+		elsif @dominance=@compliance && @dominance>@steadiness && @dominance>@influence	&& @compliance>@steadiness && @influence<@compliance
+			@kepribadian="Antara Dominance & Compliance"
+		elsif @influence=@compliance && @influence>@steadiness && @dominance<@influence	&& @compliance>@steadiness && @dominance<@compliance
+			@kepribadian="Antara Influence & Compliance"
+		elsif @influence=@steadiness && @dominance<@influence && @compliance<@influence	&& @compliance<@steadiness && @dominance<@steadiness
+			@kepribadian="Antara Influence & Steadiness"
+		elsif @steadiness=@compliance && @dominance<@steadiness && @steadiness>@influence	&& @compliance>@influence && @dominance<@compliance
+			@kepribadian="Antara Steadiness & Compliance"
+		else
+			@kepribadian="Psikopat"
 		end
 
 		@user = current_user.update_attributes(:kepribadian => @kepribadian)
