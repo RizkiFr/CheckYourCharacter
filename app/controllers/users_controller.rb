@@ -30,11 +30,12 @@ class UsersController < ApplicationController
 
   def destroy
     @countAnswer=Answer.where(user_id: @user.id).count
-    @answers = Answer.find_by_user_id(@user.id)
+    @answers = Answer.where(user_id: @user.id)
     if @countAnswer>1
       @answers.each do |answer|
         answer.destroy
       end
+      @user.destroy
     elsif @countAnswer<1
       @user.destroy
     else
