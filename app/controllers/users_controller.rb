@@ -29,8 +29,18 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    @countAnswer=Answer.where(user_id: @user.id).count
+    @answers = Answer.find_by_user_id(@user.id)
+    if @countAnswer>1
+      @answers.each do |answer|
+        answer.destroy
+      end
+    elsif @countAnswer<1
+      @user.destroy
+    else
+      @answers.destroy
+      @user.destroy
+    end
 
     redirect_to users_path
   end

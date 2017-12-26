@@ -280,17 +280,17 @@ class AnswersController < ApplicationController
 			@kepribadian="Steadiness"
 		elsif @compliance>@influence && @compliance>@dominance && @compliance>@steadiness
 			@kepribadian="Compliance"
-		elsif @dominance=@influence && @dominance>@steadiness && @dominance>@compliance	&& @influence>@steadiness && @influence>@compliance
+		elsif @dominance==@influence && @dominance>@steadiness && @dominance>@compliance	&& @influence>@steadiness && @influence>@compliance
 			@kepribadian="Antara Dominance & Influence"
-		elsif @dominance=@steadiness && @dominance>@influence && @dominance>@compliance	&& @influence<@steadiness && @steadiness>@compliance
+		elsif ((@dominance==@steadiness) && (@dominance>@influence) && (@dominance>@compliance)	&& (@influence<@steadiness) && (@steadiness>@compliance))
 			@kepribadian="Antara Dominance & Steadiness"
-		elsif @dominance=@compliance && @dominance>@steadiness && @dominance>@influence	&& @compliance>@steadiness && @influence<@compliance
+		elsif @dominance==@compliance && @dominance>@steadiness && @dominance>@influence	&& @compliance>@steadiness && @influence<@compliance
 			@kepribadian="Antara Dominance & Compliance"
-		elsif @influence=@compliance && @influence>@steadiness && @dominance<@influence	&& @compliance>@steadiness && @dominance<@compliance
+		elsif @influence==@compliance && @influence>@steadiness && @dominance<@influence	&& @compliance>@steadiness && @dominance<@compliance
 			@kepribadian="Antara Influence & Compliance"
-		elsif @influence=@steadiness && @dominance<@influence && @compliance<@influence	&& @compliance<@steadiness && @dominance<@steadiness
+		elsif ((@influence==@steadiness) && (@influence>@dominance) && (@influence>@compliance)	&& (@steadiness>@compliance) && (@steadiness>@dominance))
 			@kepribadian="Antara Influence & Steadiness"
-		elsif @steadiness=@compliance && @dominance<@steadiness && @steadiness>@influence	&& @compliance>@influence && @dominance<@compliance
+		elsif @steadiness==@compliance && @dominance<@steadiness && @steadiness>@influence	&& @compliance>@influence && @dominance<@compliance
 			@kepribadian="Antara Steadiness & Compliance"
 		else
 			@kepribadian="Psikopat"
