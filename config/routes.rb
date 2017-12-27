@@ -15,9 +15,9 @@ Rails.application.routes.draw do
 
   resources :dashboard
 
-	resources :articles
-
-	resources :facts
+	resources :articles do
+    resources :comments
+  end
 
   resources :questions
 

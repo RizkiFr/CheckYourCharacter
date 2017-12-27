@@ -5,10 +5,8 @@
         <%= link_to image_tag("logo", :class => 'navbar-logo'), {controller: 'welcome'} %>
       </div>
       <ul class="nav nav-pills">
-        <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
-        <li role="presentation"><%= link_to 'Admin', controller: 'admin' %></li>
-        <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
-        <li role="presentation"><%= link_to 'Artikel', articles_path %></li>
+        <li role="presentation"><%= link_to 'Tes Karakter', answers_path %></li>
+        <li role="presentation"><%= link_to 'Info Karakter', articles_path %></li>
       </ul>
       <ul class="nav nav-pills navbar-right">
         <div class="navbar-text pull-right">
@@ -22,7 +20,6 @@
                 current_user.email + ' (user)'
           end%>     
         <% end %>
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
@@ -38,7 +35,11 @@
     <div class="container-fluid">
       <h1><%= @article.title %></h1><br>
       <%= @article.text %>
-    </div>
+
+      <h2>Comments</h2>
+      <%= render @article.comments %>
+      <h2>Add a comment:</h2>
+      <%= render 'comments/form' %>
 </div>
 <div class="footer">
     <div class="container">
