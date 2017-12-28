@@ -1,5 +1,5 @@
 *{
-	margin:0px; padding:0px; font-family: arial;
+	margin:0px; padding:0px; font-family: Copperplate, Copperplate Gothic Light, fantasy;
 }
 .wrapper{
 	width: 100%;
@@ -183,7 +183,7 @@ nav ul li a{
     border:2px solid #D0D1CF;
     border-radius: 5px;
     margin-top:25px;
-    margin-left: 81%;
+    margin-left: 79%;
 }
 .navbar-right{
 	
@@ -241,4 +241,10 @@ a{
 }
 .signup{
 	margin-top: 50px;
+}
+.unhappy{
+	float: left;
+}
+.soal{
+	margin-top: 5%;
 }

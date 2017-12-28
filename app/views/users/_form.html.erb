@@ -12,15 +12,16 @@
       </ul>
     </div>
   <% end %>
-
+<div class="col-md-6 col-md-offset-3">
+  <div class="form-grup">
   <p>
     <%= form.label :nim %><br>
-    <%= form.text_field :nim %>
+    <%= form.text_field :nim, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :nama %><br>
-    <%= form.text_field :nama %>
+    <%= form.text_field :nama, :class => 'form-control' %>
   </p>
 
   <p>
@@ -32,37 +33,37 @@
 
   <p>
     <%= form.label :alamat %><br>
-    <%= form.text_area :alamat %>
+    <%= form.text_area :alamat, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :tempat_lahir %><br>
-    <%= form.text_field :tempat_lahir %>
+    <%= form.text_field :tempat_lahir, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :tanggal_lahir %><br>
-    <%= form.date_field :tgl_lahir %>
+    <%= form.date_field :tgl_lahir, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :no_telepon %><br>
-    <%= form.telephone_field :no_telepon %>
+    <%= form.telephone_field :no_telepon, :class => 'form-control' %>
   </p>  
 
   <p>
     <%= form.label :jurusan %><br>
-    <%= form.text_field :jurusan %>
+    <%= form.text_field :jurusan, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :fakultas %><br>
-    <%= form.text_field :fakultas %>
+    <%= form.text_field :fakultas, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :email %><br>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, :class => 'form-control' %>
   </p>
 
   <p>
@@ -76,7 +77,9 @@
   </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit "Update User", :class=> "btn btn-success btn-block" %>
   </p>
 
 <% end %>
+</div>
+</div>

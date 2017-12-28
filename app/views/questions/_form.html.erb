@@ -12,39 +12,40 @@
       </ul>
     </div>
   <% end %>
-
-  <p>
+<div class="col-md-6 col-md-offset-3">
+  <div class="form-grup">
     <%= form.label :no %><br>
-    <%= form.text_field :no %>
-  </p>
+    <%= form.text_field :no, :class => 'form-control' %>
+  </div>
 
   <p>
     <%= form.label :pertanyaan %><br>
-    <%= form.text_field :pertanyaan %>
+    <%= form.text_area :pertanyaan , :class => 'form-control'%>
   </p>
 
   <p>
     <%= form.label :pilihan_A %><br>
-    <%= form.text_field :pilihan_A %>
+    <%= form.text_field :pilihan_A, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :pilihan_B %><br>
-    <%= form.text_field :pilihan_B %>
+    <%= form.text_field :pilihan_B, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :pilihan_C %><br>
-    <%= form.text_field :pilihan_C %>
+    <%= form.text_field :pilihan_C, :class => 'form-control' %>
   </p>
 
   <p>
     <%= form.label :pilihan_D %><br>
-    <%= form.text_field :pilihan_D %>
+    <%= form.text_field :pilihan_D, :class => 'form-control' %>
   </p>  
 
   <p>
-    <%= form.submit %>
+    <%= form.submit "Create Question", :class=>"btn btn-success btn-block" %>
   </p>
-
+</div>
 <% end %>
+
