@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
     has_many :answers, dependent: :destroy
+    has_many :comments, dependent: :destroy
+    has_many :articles, dependent: :destroy
 
 	validates :nim, presence: true
 	validates :nama, presence: true
