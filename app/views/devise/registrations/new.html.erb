@@ -12,7 +12,7 @@
             <div class="form-group">
 
               <div class="form-group">
-              <%= f.text_field :nim, autofocus: true, :class => 'form-control', placeholder: "NIM" %>
+              <%= f.text_field :nim, autofocus: true, :class => 'form-control', placeholder: "NIM/No KTP/No Induk Pelajar" %>
             </div>
             <div class="form-group">
               <%= f.text_field :nama, autofocus: true, :class => 'form-control', placeholder: "Nama Lengkap" %>
@@ -40,14 +40,6 @@
             <div class="form-group">
               <%= f.telephone_field :no_telepon, autofocus: true, :class => 'form-control', placeholder: "No Telepon" %>
             </div>  
-
-            <div class="form-group">
-              <%= f.text_field :jurusan , autofocus: true, :class => 'form-control', placeholder: "Jurusan"%>
-            </div>
-
-            <div class="form-group">
-              <%= f.text_field :fakultas, autofocus: true, :class => 'form-control', placeholder: "Fakultas" %>
-            </div>
 
             <div class="form-group">
               <%= f.label :profile_picture %><br>

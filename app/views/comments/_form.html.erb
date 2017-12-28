@@ -1,0 +1,18 @@
+<%= form_with(model: [ @article, @article.comments.build ]) do |form| %>
+  <p>
+  	<%= if !current_user.nil?
+  		form.label :comment
+  	end%><br>
+  	<%= if !current_user.nil?
+  		form.text_area :comment
+  	end%>
+  </p>
+  <%= if !current_user.nil? 
+  	form.hidden_field :user_id, :value => current_user.id 
+  end%>
+  <p>
+  	<%= if !current_user.nil? 
+    	form.submit
+   	end%> 
+  </p>
+<% end %>

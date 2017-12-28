@@ -1,4 +1,102 @@
-<h4>Karakter <%= current_user.email %></h4>
-<h1>Baik</h1>
-<%= link_to 'Kembali ke Halaman Utama', welcome_path %>
+<div class="header-page">
+  <div class="nav-page">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to image_tag("logo",:class => 'navbar-logo'), {controller: 'welcome'} %>
+      </div>
+      <ul class="nav nav-pills">
+        <li role="presentation"><%= link_to 'Tes Karakter', answers_path %></li>
+        <li role="presentation"><%= link_to 'Info Karakter', articles_path %></li>
+      </ul>
+      <ul class="nav nav-pills navbar-right">
+        <div class="navbar-text pull-right">
+   
+       <% if user_signed_in? %>
+        <% if current_user.has_role? :admin %>
+          <%= if !current_user.nil?
+                current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+          end%>
+        <% else %>
+          <%= if !current_user.nil?
+                current_user.email + ' (user)'
+          end%>     
+        <% end %>
+        <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="body-page">
+  <%#= @dominance %>
+  <%#= @influence %>
+  <%#= @steadiness %>
+  <%#= @compliance %>
+	<h2>Karakter anda cenderung <%= current_user.kepribadian %></h2>
+  <% if current_user.kepribadian == 'Dominance' %>
+    <p>
+      Orang yang Dominant  tinggi akan bersifat asertif (tegas) dan langsung. Biasa nya mereka sangat independen dan ambisius. Dalam pemecahan masalahnya, tipe dominan ini melakukan pendekatan yang aktif dan cepat menyelesaikan masalah. Mereka ini orang yang cukup gagah, mereka sangat menyukai tantangan dan persaingan. Mereka dipandang orang lain sebagai orang yang berkemauan keras. Oleh karena itu mereka menginginkan segala sesuatu sesuai dengan kemauan mereka. 
+    </p>
+  <% elsif current_user.kepribadian == 'Influence' %>
+    <p>
+      Tipe Influencing ini senang berteman. Mereka suka menghibur orang lain dan bersifat sosial. Dalam penyelesaian masalah atau mengerjakan sesuatu, mereka banyak mengandalkan keterampilan sosial. Orang yang bersifat interpersonal ini senang berpartisipasi dalam kelompok dan suka bekerja sama. Keterbukaan sikapnya membuat orang lain memandang dirinya sebagai pribadi yang gampang bergaul dan ramah. Biasa nya pribadi seperti ini memiliki banyak teman. Tipe antarpribadi ini, tipe orang yang emosional karena mereka mudah mengungkapkan emosi kepada orang lain, emosional disini artinya bukan mudah marah, tetapi mudah mengungkapkan isi hatinya. Mereka lebih merasa nyaman berurusan dengan emosi daripada hal lain. 
+    </p>
+  <% elsif current_user.kepribadian == 'Steadiness' %>
+    <p>
+       Orang yang bertipe Steadiness ini adalah orang yang berkeras hati, gigih, dan sabar. Mereka mendekati dan menjalani kehidupan dengan memanfaatkan standar yang terukur dan stabil. Pada umumnya mereka tidak begitu suka kejutan. Pribadi mantap ini tidak banyak menuntut dan bersifat akomodatif. Mereka sangat ramah dan memperlihatkan kesetiaannya kepada mereka yang ada disekitarnya. Mereka sangat menghargai ketulusan. Orang yang bertipe mantap ini jujur dan mengatakan apa adanya dan berharap orang lain melakukan hal yang sama. Orang lain memandang mereka sebagai orang yang tenang, berhati hati dan konsisten dalam cara mereka menjalani kehidupan. Memiliki tingkat ketabahan yang luar biasa. Mereka dapat mempertahankan fokus dan kepentingan mereka dalam jangka waktu yang lama dibandingankan orang lain yang mampu melakukan.
+    </p>
+  <% elsif current_user.kepribadian == 'Compliance' %>
+    <p>
+      Teliti, begitu sebutan untuk tipe orang ini. Tipe teliti ini sangat tertarik pada presisi (ketelitian dan kecermatan) dan juga dengan akurasi (kecepatan). Mereka menyukai segalanya serba teratur dan jelas. Dan mereka sangat fokus terhadap fakta, maunya ada bukti. Orang tipe teliti ini sangat menghargai peraturan, mereka tidak suka melanggar peraturan. Dalam beraktivitas pun begitu, menggunakan sistematis dan aturan aturan agar semuanya terkelola dengan baik. Mengatasi konflik secara tidak langsung. Dihadapan orang lain, mereka dipandang pasif dan selalu mengalah. Kayak judul lagu aja selalu mengalah. 
+    </p>
+  <% elsif current_user.kepribadian == 'Antara Dominance & Influence' %>
+    <p>
+      Orang yang Dominant  tinggi akan bersifat asertif (tegas) dan langsung. Biasa nya mereka sangat independen dan ambisius. Dalam pemecahan masalahnya, tipe dominan ini melakukan pendekatan yang aktif dan cepat menyelesaikan masalah. Mereka ini orang yang cukup gagah, mereka sangat menyukai tantangan dan persaingan. Mereka dipandang orang lain sebagai orang yang berkemauan keras. Oleh karena itu mereka menginginkan segala sesuatu sesuai dengan kemauan mereka.<br> 
+      Tipe Influencing ini senang berteman. Mereka suka menghibur orang lain dan bersifat sosial. Dalam penyelesaian masalah atau mengerjakan sesuatu, mereka banyak mengandalkan keterampilan sosial. Orang yang bersifat interpersonal ini senang berpartisipasi dalam kelompok dan suka bekerja sama. Keterbukaan sikapnya membuat orang lain memandang dirinya sebagai pribadi yang gampang bergaul dan ramah. Biasa nya pribadi seperti ini memiliki banyak teman. Tipe antarpribadi ini, tipe orang yang emosional karena mereka mudah mengungkapkan emosi kepada orang lain, emosional disini artinya bukan mudah marah, tetapi mudah mengungkapkan isi hatinya. Mereka lebih merasa nyaman berurusan dengan emosi daripada hal lain. 
+    </p>
+  <% elsif current_user.kepribadian == 'Antara Dominance & Steadiness' %>
+    <p>
+      Orang yang Dominant  tinggi akan bersifat asertif (tegas) dan langsung. Biasa nya mereka sangat independen dan ambisius. Dalam pemecahan masalahnya, tipe dominan ini melakukan pendekatan yang aktif dan cepat menyelesaikan masalah. Mereka ini orang yang cukup gagah, mereka sangat menyukai tantangan dan persaingan. Mereka dipandang orang lain sebagai orang yang berkemauan keras. Oleh karena itu mereka menginginkan segala sesuatu sesuai dengan kemauan mereka.<br>
+      Orang yang bertipe Steadiness ini adalah orang yang berkeras hati, gigih, dan sabar. Mereka mendekati dan menjalani kehidupan dengan memanfaatkan standar yang terukur dan stabil. Pada umumnya mereka tidak begitu suka kejutan. Pribadi mantap ini tidak banyak menuntut dan bersifat akomodatif. Mereka sangat ramah dan memperlihatkan kesetiaannya kepada mereka yang ada disekitarnya. Mereka sangat menghargai ketulusan. Orang yang bertipe mantap ini jujur dan mengatakan apa adanya dan berharap orang lain melakukan hal yang sama. Orang lain memandang mereka sebagai orang yang tenang, berhati hati dan konsisten dalam cara mereka menjalani kehidupan. Memiliki tingkat ketabahan yang luar biasa. Mereka dapat mempertahankan fokus dan kepentingan mereka dalam jangka waktu yang lama dibandingankan orang lain yang mampu melakukan.
+    </p>
+  <% elsif current_user.kepribadian == 'Antara Dominance & Compliance' %>
+    <p>
+      Orang yang Dominant  tinggi akan bersifat asertif (tegas) dan langsung. Biasa nya mereka sangat independen dan ambisius. Dalam pemecahan masalahnya, tipe dominan ini melakukan pendekatan yang aktif dan cepat menyelesaikan masalah. Mereka ini orang yang cukup gagah, mereka sangat menyukai tantangan dan persaingan. Mereka dipandang orang lain sebagai orang yang berkemauan keras. Oleh karena itu mereka menginginkan segala sesuatu sesuai dengan kemauan mereka.<br>
+      Teliti, begitu sebutan untuk tipe orang ini. Tipe teliti ini sangat tertarik pada presisi (ketelitian dan kecermatan) dan juga dengan akurasi (kecepatan). Mereka menyukai segalanya serba teratur dan jelas. Dan mereka sangat fokus terhadap fakta, maunya ada bukti. Orang tipe teliti ini sangat menghargai peraturan, mereka tidak suka melanggar peraturan. Dalam beraktivitas pun begitu, menggunakan sistematis dan aturan aturan agar semuanya terkelola dengan baik. Mengatasi konflik secara tidak langsung. Dihadapan orang lain, mereka dipandang pasif dan selalu mengalah. Kayak judul lagu aja selalu mengalah. 
+    </p>
+  <% elsif current_user.kepribadian == 'Antara Influence & Steadiness' %>
+    <p>
+      Tipe Influencing ini senang berteman. Mereka suka menghibur orang lain dan bersifat sosial. Dalam penyelesaian masalah atau mengerjakan sesuatu, mereka banyak mengandalkan keterampilan sosial. Orang yang bersifat interpersonal ini senang berpartisipasi dalam kelompok dan suka bekerja sama. Keterbukaan sikapnya membuat orang lain memandang dirinya sebagai pribadi yang gampang bergaul dan ramah. Biasa nya pribadi seperti ini memiliki banyak teman. Tipe antarpribadi ini, tipe orang yang emosional karena mereka mudah mengungkapkan emosi kepada orang lain, emosional disini artinya bukan mudah marah, tetapi mudah mengungkapkan isi hatinya. Mereka lebih merasa nyaman berurusan dengan emosi daripada hal lain.<br> 
+      Orang yang bertipe Steadiness ini adalah orang yang berkeras hati, gigih, dan sabar. Mereka mendekati dan menjalani kehidupan dengan memanfaatkan standar yang terukur dan stabil. Pada umumnya mereka tidak begitu suka kejutan. Pribadi mantap ini tidak banyak menuntut dan bersifat akomodatif. Mereka sangat ramah dan memperlihatkan kesetiaannya kepada mereka yang ada disekitarnya. Mereka sangat menghargai ketulusan. Orang yang bertipe mantap ini jujur dan mengatakan apa adanya dan berharap orang lain melakukan hal yang sama. Orang lain memandang mereka sebagai orang yang tenang, berhati hati dan konsisten dalam cara mereka menjalani kehidupan. Memiliki tingkat ketabahan yang luar biasa. Mereka dapat mempertahankan fokus dan kepentingan mereka dalam jangka waktu yang lama dibandingankan orang lain yang mampu melakukan.
+    </p>
+  <% elsif current_user.kepribadian == 'Antara Influence & Compliance' %>
+    <p>
+      Tipe Influencing ini senang berteman. Mereka suka menghibur orang lain dan bersifat sosial. Dalam penyelesaian masalah atau mengerjakan sesuatu, mereka banyak mengandalkan keterampilan sosial. Orang yang bersifat interpersonal ini senang berpartisipasi dalam kelompok dan suka bekerja sama. Keterbukaan sikapnya membuat orang lain memandang dirinya sebagai pribadi yang gampang bergaul dan ramah. Biasa nya pribadi seperti ini memiliki banyak teman. Tipe antarpribadi ini, tipe orang yang emosional karena mereka mudah mengungkapkan emosi kepada orang lain, emosional disini artinya bukan mudah marah, tetapi mudah mengungkapkan isi hatinya. Mereka lebih merasa nyaman berurusan dengan emosi daripada hal lain.<br>
+      Teliti, begitu sebutan untuk tipe orang ini. Tipe teliti ini sangat tertarik pada presisi (ketelitian dan kecermatan) dan juga dengan akurasi (kecepatan). Mereka menyukai segalanya serba teratur dan jelas. Dan mereka sangat fokus terhadap fakta, maunya ada bukti. Orang tipe teliti ini sangat menghargai peraturan, mereka tidak suka melanggar peraturan. Dalam beraktivitas pun begitu, menggunakan sistematis dan aturan aturan agar semuanya terkelola dengan baik. Mengatasi konflik secara tidak langsung. Dihadapan orang lain, mereka dipandang pasif dan selalu mengalah. Kayak judul lagu aja selalu mengalah. 
+    </p>
+  <% elsif current_user.kepribadian == 'Antara Steadiness & Compliance' %>
+    <p>
+      Orang yang bertipe Steadiness ini adalah orang yang berkeras hati, gigih, dan sabar. Mereka mendekati dan menjalani kehidupan dengan memanfaatkan standar yang terukur dan stabil. Pada umumnya mereka tidak begitu suka kejutan. Pribadi mantap ini tidak banyak menuntut dan bersifat akomodatif. Mereka sangat ramah dan memperlihatkan kesetiaannya kepada mereka yang ada disekitarnya. Mereka sangat menghargai ketulusan. Orang yang bertipe mantap ini jujur dan mengatakan apa adanya dan berharap orang lain melakukan hal yang sama. Orang lain memandang mereka sebagai orang yang tenang, berhati hati dan konsisten dalam cara mereka menjalani kehidupan. Memiliki tingkat ketabahan yang luar biasa. Mereka dapat mempertahankan fokus dan kepentingan mereka dalam jangka waktu yang lama dibandingankan orang lain yang mampu melakukan.<br>
+      Teliti, begitu sebutan untuk tipe orang ini. Tipe teliti ini sangat tertarik pada presisi (ketelitian dan kecermatan) dan juga dengan akurasi (kecepatan). Mereka menyukai segalanya serba teratur dan jelas. Dan mereka sangat fokus terhadap fakta, maunya ada bukti. Orang tipe teliti ini sangat menghargai peraturan, mereka tidak suka melanggar peraturan. Dalam beraktivitas pun begitu, menggunakan sistematis dan aturan aturan agar semuanya terkelola dengan baik. Mengatasi konflik secara tidak langsung. Dihadapan orang lain, mereka dipandang pasif dan selalu mengalah. Kayak judul lagu aja selalu mengalah. 
+    </p>
+  <% else %>
+    <p>
+      Anda seorang psikopat
+    </p>
+  <% end %>
+	<%= link_to 'Kembali ke Halaman Utama', welcome_path %>
+</div>
+<div class="footer">
+    <div class="container">
+        &copy; 2017. Designed by CYC Team.
+    </div>
+</div>
+
+
+
   

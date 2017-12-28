@@ -5,16 +5,23 @@
         <%= link_to image_tag("logo",:class => 'navbar-logo'), {controller: 'welcome'} %>
       </div>
       <ul class="nav nav-pills">
-         <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
-          <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
+        <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
+        <li role="presentation"><%= link_to 'Admin', controller: 'admin' %></li>
+        <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
       </ul>
       <ul class="nav nav-pills navbar-right">
         <div class="navbar-text pull-right">
    
-      <% if user_signed_in? %>
-        <%= if !current_user.nil?
-              current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
-        end%>
+       <% if user_signed_in? %>
+        <% if current_user.has_role? :admin %>
+          <%= if !current_user.nil?
+                current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+          end%>
+        <% else %>
+          <%= if !current_user.nil?
+                current_user.email + ' (user)'
+          end%>     
+        <% end %>
         <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
@@ -32,15 +39,13 @@
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>NIM</th>
+              <th>ID</th>
               <th>Nama</th>
               <th>Jenis Kelamin</th>
               <th>Alamat</th>
               <th>Tempat Lahir</th>
               <th>Tangal Lahir</th>
               <th>No Telepon</th>
-              <th>Jurusan</th>
-              <th>Fakultas</th>
               <th>Email</th>
             </tr>
           </thead>
@@ -54,8 +59,6 @@
                 <td><%= user.tempat_lahir %></td>
                 <td><%= user.tgl_lahir %></td>
                 <td><%= user.no_telepon %></td>
-                <td><%= user.jurusan %></td>
-                <td><%= user.fakultas %></td>
                 <td><%= user.email %></td>
               </tr>
             <% end %>
@@ -63,38 +66,14 @@
         </table>
       </div>
     </div>
-    <%= link_to "Export to Excel", users_path(format: "xls"), :class => 'excel' %>
+    <div>
+      
+    <div class = "btn btn-success excel" style="margin-bottom: 500px">
+      <%= link_to "Export to Excel", controller: 'admin', format: "xls" %>
+    </div>
 </div>
 <div class="footer">
     <div class="container">
         &copy; 2017. Designed by CYC Team.
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

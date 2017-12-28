@@ -5,16 +5,34 @@
         <%= link_to image_tag("logo", :class => 'navbar-logo'), {controller: 'welcome'} %>
       </div>
       <ul class="nav nav-pills">
+<<<<<<< HEAD
          <li role="presentation"><%= link_to 'Pengguna', students_path,:class => 'pengguna' %></li>
           <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
+=======
+        <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
+        <li role="presentation"><%= link_to 'Admin', controller: 'admin' %></li>
+        <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
+>>>>>>> 304df476bec887a91fba9a32fd3f902bdd8d9938
       </ul>
       <ul class="nav nav-pills navbar-right">
         <div class="navbar-text pull-right">
           <% if user_signed_in? %>
+<<<<<<< HEAD
             <%= if !current_user.nil?
                     current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
                   end%>
             <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+=======
+            <% if current_user.has_role? :admin %>
+          <%= if !current_user.nil?
+                current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+          end%>
+        <% else %>
+          <%= if !current_user.nil?
+                current_user.email + ' (user)'
+          end%>     
+        <% end %>
+>>>>>>> 304df476bec887a91fba9a32fd3f902bdd8d9938
             <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
@@ -26,6 +44,7 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 
 <div class="body-page">
 <div class="container">
@@ -38,12 +57,23 @@
 <%= link_to 'Back', questions_path, :class => "btn btn-danger btn-block" %>
 </div>
 </div>
+=======
+<div class="body-page">
+    <div class="container-fluid">
+			<h1>Tambah Pertanyaan</h1>
+			<%= render 'form' %>
+			<%= link_to 'Back', questions_path %>
+    </div>
+>>>>>>> 304df476bec887a91fba9a32fd3f902bdd8d9938
 </div>
 <div class="footer">
     <div class="container">
         &copy; 2017. Designed by CYC Team.
     </div>
 </div>
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 304df476bec887a91fba9a32fd3f902bdd8d9938

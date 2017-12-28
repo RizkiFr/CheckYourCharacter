@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :authorize
   load_and_authorize_resource
 	def index
-    @questions = Question.all
+    @questions = Question.all.order(:no)
   end
 
   def new
@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     if @question.save
-      redirect_to questions_path
+      redirect_to questions_path, notice: 'Data berhasil di simpan'
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
-      redirect_to questions_path
+      redirect_to questions_path, notice: 'Data berhasil di ubah'
     else
       render 'edit'
     end
@@ -44,11 +44,11 @@ class QuestionsController < ApplicationController
   private
     def authorize
       if !current_user.has_role? :admin
-        render plain:"No access for you!"
+        redirect_to welcome_path, alert: "Anda tidak bisa mengakses halaman tersebut"
       end
     end
 
     def question_params
-      params.require(:question).permit(:pertanyaan, :pilihan_A, :pilihan_B, :pilihan_C, :pilihan_D, :no)
+      params.require(:question).permit(:dominance, :influence, :steadiness, :compliance, :no)
     end
 end

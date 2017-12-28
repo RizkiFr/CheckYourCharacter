@@ -5,14 +5,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+    has_many :answers, dependent: :destroy
+    has_many :comments, dependent: :destroy
+    has_many :articles, dependent: :destroy
+
 	validates :nim, presence: true
 	validates :nama, presence: true
 	validates :jenis_kelamin, presence: true
 	validates :alamat, presence: true
 	validates :tempat_lahir, presence: true
 	validates :tgl_lahir, presence: true
-	validates :jurusan, presence: true
-	validates :fakultas, presence: true
 	validates :email, presence: true
 	validates :no_telepon, presence: true
 
@@ -21,7 +23,6 @@ class User < ApplicationRecord
 	validates :nim, numericality: { only_integer: true }
 	validates :no_telepon, numericality: { only_integer: true }
 
-	validates :nim, length: { is: 10 }
 
 	validates_presence_of :profile_picture
 
@@ -34,15 +35,6 @@ class User < ApplicationRecord
 	    where('nim LIKE ?', "%#{term}%")
 	  else
 	    with_role :student
-	  end
-	end
-
-	def self.to_csv(options = {})
-	  CSV.generate(options) do |csv|
-	    csv << column_names
-	    all.each do |student|
-	      csv << student.attributes.values_at(*column_names)
-	    end
 	  end
 	end
 
