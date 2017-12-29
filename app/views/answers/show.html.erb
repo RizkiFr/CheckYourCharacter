@@ -33,11 +33,13 @@
   </div>
 </div>
 <div class="body-page">
+<div class="container">
+<div class="outter-form show-hasil">
   <%#= @dominance %>
   <%#= @influence %>
   <%#= @steadiness %>
   <%#= @compliance %>
-	<h2>Karakter anda cenderung <%= current_user.kepribadian %></h2>
+	<h2 class="text-center">Karakter anda cenderung <%= current_user.kepribadian %></h2>
   <% if current_user.kepribadian == 'Dominance' %>
     <p>
       Orang yang Dominant  tinggi akan bersifat asertif (tegas) dan langsung. Biasa nya mereka sangat independen dan ambisius. Dalam pemecahan masalahnya, tipe dominan ini melakukan pendekatan yang aktif dan cepat menyelesaikan masalah. Mereka ini orang yang cukup gagah, mereka sangat menyukai tantangan dan persaingan. Mereka dipandang orang lain sebagai orang yang berkemauan keras. Oleh karena itu mereka menginginkan segala sesuatu sesuai dengan kemauan mereka. 
@@ -89,7 +91,9 @@
       Anda seorang psikopat
     </p>
   <% end %>
-	<%= link_to 'Kembali ke Halaman Utama', welcome_path %>
+</div>
+<%= link_to 'Kembali ke Halaman Utama', welcome_path, :class=>'btn btn-danger back-show' %>
+</div>
 </div>
 <div class="footer">
     <div class="container">

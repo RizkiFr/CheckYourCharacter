@@ -145,7 +145,7 @@ header{
 	
 }
 .body-page{
-	background:#ddd;
+	background:#ecf0f1;
 	min-height:685px;
 	padding:10px;
 }
@@ -236,15 +236,59 @@ a{
 }
 .logo-daftar{
 	position: absolute;
-     top: -50px;
-     left: 190px;
+    top: -50px;
+    left: 190px;
 }
-.signup{
-	margin-top: 50px;
+.outter-form-signup{
+	margin-top: -100px;
+	padding: 20px;
+    background: white;
+    position: relative;
+    border-radius: 5px;
 }
 .unhappy{
 	float: left;
 }
 .soal{
 	margin-top: 5%;
+}
+.newanswer{
+	float: left;
+	margin-left: 15px;
+}
+.backanswer{
+	margin-left: 5px;
+}
+.show-hasil{
+	margin-top: 50px;
+	min-height:535px;
+
+}
+.back-show{
+	margin-top: 20px;
+}
+.judul-article a{
+	color: black;
+	text-decoration: none;
+}
+.judul-article a:hover{
+	color: #428bca;
+	text-decoration: none;
+}
+.isi-article {
+	color: black;
+}
+.postingan-saya a{
+	color: black;
+	text-decoration: none;
+}
+.comments{
+	padding: 10px;
+    background: white;
+    position: relative;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.tambah-informasi{
+	min-height: 390px;
 }

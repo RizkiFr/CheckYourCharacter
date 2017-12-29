@@ -1,3 +1,4 @@
+<div class="comments">
 <p>
   <strong>Commenter:</strong>
   <%= comment.user.email %>
@@ -5,11 +6,14 @@
 <p>
   <strong>Comment:</strong>
   <%= comment.comment %><br>
+  <br>
+  <br>
   <%= if !current_user.nil? 
 	  if comment.user.id == current_user.id
-	  	link_to 'Delete Comment', [comment.article, comment],
+	  	link_to 'Delete Comment', [comment.article, comment],  :class=>'btn btn-sm btn-danger',
 	               method: :delete,
 	               data: { confirm: 'Are you sure?' }
 	  end
 	end %>
-</p><br>
+</p>
+</div>

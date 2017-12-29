@@ -4,7 +4,7 @@
   		form.label :comment
   	end%><br>
   	<%= if !current_user.nil?
-  		form.text_area :comment
+  		form.text_area :comment, :class=>'form-control'
   	end%>
   </p>
   <%= if !current_user.nil? 
@@ -12,7 +12,7 @@
   end%>
   <p>
   	<%= if !current_user.nil? 
-    	form.submit
+    	form.submit  :class=>'btn btn-sm btn-success'
    	end%> 
   </p>
 <% end %>

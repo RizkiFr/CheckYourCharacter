@@ -37,7 +37,7 @@
       <div class="table-responsive">
         <table class="table table-bordered table-striped">
           <thead>
-            <tr>
+            <tr class="info">
               <th>No</th>
               <th>Dominance</th>
               <th>Influence</th>
@@ -54,8 +54,8 @@
                 <td><%= question.influence %></td>
                 <td><%= question.steadiness %></td>
                 <td><%= question.compliance %></td>
-                <td align="center"><%= link_to 'Edit', edit_question_path(question) %>
-                  <%= link_to 'Delete', question_path(question),
+                <td align="center"><%= link_to 'Edit', edit_question_path(question), :class => "btn btn-warning btn-sm" %>
+                  <%= link_to 'Delete', question_path(question), :class => "btn btn-danger btn-sm",
                   method: :delete, data: { confirm: 'Are you sure?' } %>    
                 </td>
               </tr>

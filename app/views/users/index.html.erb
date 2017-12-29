@@ -41,9 +41,6 @@
         <% end %>
       </div>
     <div class="container-fluid">
-    
-      
-      
       <div class="table-responsive">
         <table class="table table-bordered table-striped">
           <thead>
@@ -57,8 +54,7 @@
               <th>No Telepon</th>
               <th>Email</th>
               <th>Kepribadian</th>
-              <th>Keterangan</th>
-              <th>Action</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -73,9 +69,8 @@
                 <td><%= user.no_telepon %></td>
                 <td><%= user.email %></td>
                 <td><%= user.kepribadian %></td>
-                <td><%= user.keterangan %></td>
-                <td><%= link_to 'Edit', edit_user_path(user) %>
-                  <%= link_to 'Delete', user_path(user),
+                <td align="center"><%= link_to 'Edit', edit_user_path(user), :class => "btn btn-warning btn-sm" %>
+                  <%= link_to 'Delete', user_path(user), :class => "btn btn-danger btn-sm",
                   method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
