@@ -185,6 +185,12 @@ nav ul li a{
     margin-top:25px;
     margin-left: 79%;
 }
+.search-article{
+	padding:4px 15px;
+    background:rgba(255, 255, 255, 0.7);
+    border:2px solid #D0D1CF;
+    border-radius: 5px;
+}
 .navbar-right{
 	
 }

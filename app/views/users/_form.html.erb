@@ -16,8 +16,9 @@
   <div class="form-grup">
   <div class="outter-form">
   <p>
+
     <strong>Diisi dengan NIM/No KTP/No Induk Pelajar</strong><br>
-    <%= form.label :nim %><br>
+
     <%= form.text_field :nim, :class => 'form-control' %>
   </p>
 
@@ -70,6 +71,7 @@
 
   <p>
     <%= form.submit "Update User", :class=> "btn btn-success btn-block" %>
+    <%= link_to 'Back', users_path, :class=>"btn btn-danger btn-block" %>
   </p>
 
 <% end %>

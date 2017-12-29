@@ -32,16 +32,26 @@
   </div>
 </div>
 <div class="body-page">
+
     <div class="container">
+    <br>
+    <div>
+        <%= form_tag(articles_path, method: :get) do %>
+          <%= text_field_tag :term, params[:term], :class => "search-article",  placeholder: "Judul" %>
+          <%= submit_tag 'Search', title: nil, :class => "btn btn-info btn-sm" %>
+        <% end %>
+      </div>
+      <br/>
+
     <div class="outter-form col-md-8">
-      
-      
-            <% @articles.each do |article| %>
-              <h2 class="judul-article"><%= link_to article.title, article_path(article) %></h2><br>
-              <p class="isi-article"><%= article.text %></p>
-            <% end %>
-        <%= link_to 'Postingan saya', posts_path, :class=>'btn btn-info' %>
-        <%= link_to 'Buat artikel', new_article_path, :class => "btn btn-success" %>
+  
+      <% @articles.each do |article| %>
+        <h2 class="judul-article"><%= link_to article.title, article_path(article) %></h2><br>
+          <p class="isi-article"><%= article.text %></p>
+      <% end %>
+
+    <%= link_to 'Postingan saya', posts_path, :class=>'btn btn-info' %>
+    <%= link_to 'Buat artikel', new_article_path, :class => "btn btn-success" %>
       
     </div>
     <div class="outter-form col-md-3 col-md-offset-1">
