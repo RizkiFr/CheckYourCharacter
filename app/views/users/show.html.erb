@@ -109,91 +109,7 @@
             </tbody>
            </table>
 
-<<<<<<< HEAD
-<h2 class="text-center title-login">Profil Peserta</h2>
-<div class="table-responsive">
 
-  <table class="table table-striped">
-  
-  <tbody>
-
-  <tr>
-    <td><strong>NIM</strong></td>
-    <td>: <%= @user.nim %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Nama</strong></td>
-    <td>: <%= @user.nama %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Jenis Kelamin</strong></td>
-    <td>: <%= @user.jenis_kelamin %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Alamat</strong></td>
-    <td>: <%= @user.alamat %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Tempat Lahir</strong></td>
-    <td>: <%= @user.tempat_lahir %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Tanggal Lahir</strong></td>
-    <td>: <%= @user.tgl_lahir %></td>
-  </tr>
-
-  <tr>
-    <td><strong>No Telepon</strong></td>
-    <td>: <%= @user.no_telepon %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Jurusan</strong></td>
-    <td>: <%= @user.jurusan %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Fakultas</strong></td>
-    <td>: <%= @user.fakultas %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Email</strong></td>
-    <td>: <%= @user.email %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Kepribadian</strong></td>
-    <td>: <%= @user.kepribadian %></td>
-  </tr>
-
-  <tr>
-    <td><strong>Keterangan</strong></td>
-    <td>: <%= @user.keterangan %></td>
-  </tr>
-  </tbody>
- </table>
-
-</div>
-<div class="text-center">
-<%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
-<% if current_user.has_role? :admin %>
-  <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-info" %> 
-<% end %>
-<% if current_user.has_role? :admin %>
-  <%= link_to 'Back', users_path, :class => "btn btn-success" %>
-<% end %>
-<% if current_user.has_role? :student %>
-  <%= link_to 'Back', welcome_path, :class => "btn btn-success" %>
-<% end %>
-</div>
-
-=======
           </div>
           <div class="text-center">
             <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
@@ -204,7 +120,6 @@
               <%= link_to 'Back', welcome_path, :class => "btn btn-success" %>
             <% end %>
           </div>
->>>>>>> 304df476bec887a91fba9a32fd3f902bdd8d9938
         </div>
       </div>
     </div>

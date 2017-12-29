@@ -32,6 +32,12 @@
   </div>
 </div>
 <div class="body-page">
+  <div>
+        <%= form_tag(articles_path, method: :get) do %>
+          <%= text_field_tag :term, params[:term], :class => "search",  placeholder: "Judul" %>
+          <%= submit_tag 'Search', title: nil, :class => "btn btn-info btn-sm" %>
+        <% end %>
+      </div>
     <div class="container-fluid">
       <%= link_to 'Postingan saya', posts_path %>
       <div class="table-responsive">

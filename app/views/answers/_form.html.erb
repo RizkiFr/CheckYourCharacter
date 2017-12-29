@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<div class="table-responsive">
-  <table class="table table-bordered table-striped">
-    <%= form_for @answer, url: {controller: "answers", action: "create"} do |f| %>
-      <% @count = 1 %>
-      <% @answers.each do |answer| %>
-=======
 <%= form_for @answer, url: {controller: "answers", action: "create"} do |f| %>
   <% if @answer.errors.any? %>
     <div id="error_explanation">
@@ -29,49 +22,3 @@
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit %>
 <% end %>
->>>>>>> 304df476bec887a91fba9a32fd3f902bdd8d9938
-
-      <thead>
-            <tr>
-              <th class="col-md-1 text-center">No</th>
-              <th>Pertanyaan</th>
-              <th>Pilihan A</th>
-              <th>Pilihan B</th>
-              <th>Pilihan C</th>
-              <th>Pilihan D</th>
-            </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-
-        <td class="text-center"><%= answer.no %></td>
-        <td><%= answer.pertanyaan %><br></td>
-
-        <td class="text-center">
-        <%= f.radio_button :"jawaban_#{@count}", 'A'%>
-        <%= answer.pilihan_A %>
-        </td>
-
-        <td>
-        <%= f.radio_button :"jawaban_#{@count}", 'B', :autocomplete => "off" %>
-        <%= answer.pilihan_B %>
-        </td>
-
-        <td>
-        <%= f.radio_button :"jawaban_#{@count}", 'C' %>
-        <%= answer.pilihan_C %>
-        </td>
-
-        <td>
-        <%= f.radio_button :"jawaban_#{@count}", 'D' %>
-        <%= answer.pilihan_D %>
-        </td>
-        <% @count += 1 %>
-      <% end %>
-      </div>
-      </tbody>
-        </table>
-</div>
-      <%= f.submit "Create Answers", :class => "btn btn-success" %>
-    <% end %>
