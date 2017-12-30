@@ -23,6 +23,7 @@
     <%= form.text_area :text, :class=> 'form-control tambah-informasi' %>
   </p>
   <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%= form.hidden_field :view, :value => 0 %>
   <p>
     <%= form.submit :class=>'btn btn-success'%>
   </p>

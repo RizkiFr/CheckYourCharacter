@@ -16,7 +16,6 @@
         <Cell><Data ss:Type="String">No Telepon</Data></Cell>
         <Cell><Data ss:Type="String">Email</Data></Cell>
         <Cell><Data ss:Type="String">Kepribadian</Data></Cell>
-        <Cell><Data ss:Type="String">Keterangan</Data></Cell>
       </Row>
     <% @users.each do |user| %>
       <Row>
@@ -29,7 +28,6 @@
         <Cell><Data ss:Type="Number"><%= user.no_telepon %></Data></Cell>
         <Cell><Data ss:Type="String"><%= user.email %></Data></Cell>
         <Cell><Data ss:Type="String"><%= user.kepribadian %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= user.keterangan %></Data></Cell>
       </Row>
     <% end %>
     </Table>

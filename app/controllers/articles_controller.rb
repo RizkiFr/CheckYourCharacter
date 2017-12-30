@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 	def index
     @articles = Article.search(params[:term])
+    @hotview = Article.all.order(view: :desc).limit(5)
   end
 
   def new
@@ -15,6 +16,9 @@ class ArticlesController < ApplicationController
   def show
     @user=current_user
     @article = Article.find(params[:id])
+    @count = 1
+    @count += @article.view
+    @article.update(view: @count)
   end
 
   def create
@@ -46,6 +50,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text, :user_id)
+      params.require(:article).permit(:title, :text, :user_id, :view)
     end
 end

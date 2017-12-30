@@ -55,7 +55,9 @@
       
     </div>
     <div class="outter-form col-md-3 col-md-offset-1">
-    isi hot article
+    <% @hotview.each do |article| %>
+      <p class="judul-article"><%= link_to article.title, article_path(article) %></p>
+    <% end %>
     </div>
     </div>
 </div>

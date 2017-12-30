@@ -46,7 +46,7 @@
           <div class="text-center foto">
              <%= image_tag @user.profile_picture_url(:thumb), :class => "img-rounded" unless @user.profile_picture.blank? %> 
           </div>
-          <% if current_user.has_role? :admin %>
+          <% if @user.has_role? :admin %>
             <h2 class="text-center title-login">Profil Admin</h2>
           <% else %>
             <h2 class="text-center title-login">Profil Peserta</h2>
@@ -107,10 +107,14 @@
 
           </div>
           <div class="text-center">
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
+            <% if current_user.id == @user.id %>
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
+            <% end %>
             <% if current_user.has_role? :admin %>
-              <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-info" %> 
-              <%= link_to 'Back', users_path, :class => "btn btn-success" %>
+              <% if current_user.id != @user.id %>
+                <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-info" %> 
+              <% end %>  
+              <%= link_to 'Back', users_path, :class => "btn btn-success" %>  
             <% else %>
               <%= link_to 'Back', welcome_path, :class => "btn btn-success" %>
             <% end %>
