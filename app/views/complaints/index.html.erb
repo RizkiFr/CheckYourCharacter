@@ -39,31 +39,19 @@
         <table class="table table-bordered table-striped">
           <thead>
             <tr class="info">
-              <th>No</th>
-              <th>Dominance</th>
-              <th>Influence</th>
-              <th>Steadiness</th>
-              <th>Compliance</th>
-              <th>Action</th>
+              <th>Email</th>
+              <th>Keluhan</th>
             </tr>
           </thead>
           <tbody>
-            <% @questions.each do |question| %>
+            <% @complaints.each do |complaint| %>
               <tr>
-                <td><%= question.no %></td>
-                <td><%= question.dominance %></td>
-                <td><%= question.influence %></td>
-                <td><%= question.steadiness %></td>
-                <td><%= question.compliance %></td>
-                <td align="center"><%= link_to 'Edit', edit_question_path(question), :class => "btn btn-warning btn-sm" %>
-                  <%= link_to 'Delete', question_path(question), :class => "btn btn-danger btn-sm",
-                  method: :delete, data: { confirm: 'Are you sure?' } %>    
-                </td>
+                <td><%= link_to complaint.user.email, complaint_path(complaint) %></td>
+                <td><%= complaint.text %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
-        <%= link_to 'Tambah Data', new_question_path, :class => "btn btn-success" %>
       </div>
     </div>
 </div>

@@ -2,6 +2,27 @@
 	<div class="logo-about">
 		<%= link_to image_tag("logo"), {controller: 'welcome'} %>
 		<h3 class="text-center about" style="color: white">About Us</h3>
+    <ul class="nav nav-pills navbar-right">
+        <div class="navbar-text pull-right">
+   
+       <% if user_signed_in? %>
+        <% if current_user.has_role? :admin %>
+          <%= if !current_user.nil?
+                current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+          end%>
+        <% else %>
+          <%= if !current_user.nil?
+                current_user.email + ' (user)'
+          end%>     
+        <% end %>
+        <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      
+      </ul>
 	</div>
 </div>
 
