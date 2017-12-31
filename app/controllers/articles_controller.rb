@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to articles_path, notice: 'Data berhasil di ubah'
+      redirect_to @article, notice: 'Data berhasil di ubah'
     else
       render 'edit'
     end

@@ -1,12 +1,16 @@
 require "rails_helper"
 
 RSpec.describe Article, type: :model do
-  it "has an article" do # yep, you can totally use 'it'
-    article = Article.create!(title: 'xyz') # creating a new Question 'instance'
-    expect(article.title).to eq('xyz') # this is our expectation
-    article = Article.create!(text: 'qwertyuiop') # creating a new Question 'instance'
-    expect(article.text).to eq('qwertyuiop') # this is our expectation
-    article = Article.create!(user_id: '12') # creating a new Question 'instance'
-    expect(article.user_id).to eq('12') # this is our expectation
-    end
+  #it 'should save succesfully' do
+  #		article = Article.new(title: 'psikologi',text: 'qwertyuiop', user_id: 1 ,view: 2 ).save
+  #		expect(article).to eq(true)
+  #end
+  it 'should failed to save because without user_id' do
+  		article = Article.new(title: 'psikologi',text: 'qwertyuiop',view: '2' ).save
+  		expect(article).to eq(false)
+  end
+  it 'should failed to save because without title' do
+  		article = Article.new(text: 'qwertyuiop', user_id:'1',view: '2' ).save
+  		expect(article).to eq(false)
+  end
 end
