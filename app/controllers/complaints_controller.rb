@@ -16,8 +16,4 @@ class ComplaintsController < ApplicationController
       redirect_to welcome_path, alert: "Anda tidak bisa mengakses halaman tersebut"
     end
   end
-
-  def complaint_params
-    params.require(:complaint).permit(:text, :user_id)
-  end
 end
