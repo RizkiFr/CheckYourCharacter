@@ -47,6 +47,7 @@
                 <%= f.check_box :remove_profile_picture %> 
               <% end %>
             </div>
+            <%= f.hidden_field :kepribadian, :value => 'Belum melakukan tes' %>
             
               <%= f.email_field :email, autofocus: true, :class => 'form-control', placeholder: "Email"%>
             </div>

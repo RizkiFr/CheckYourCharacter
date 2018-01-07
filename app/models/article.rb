@@ -10,7 +10,7 @@ class Article < ApplicationRecord
 	  if term
 	    where('title LIKE ?', "%#{term}%")
 	  else
-	    all
+	  	all
 	  end
 	end
 end

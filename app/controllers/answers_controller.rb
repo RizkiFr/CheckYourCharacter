@@ -293,7 +293,7 @@ class AnswersController < ApplicationController
 		elsif @steadiness==@compliance && @dominance<@steadiness && @steadiness>@influence	&& @compliance>@influence && @dominance<@compliance
 			@kepribadian="Antara Steadiness & Compliance"
 		else
-			@kepribadian="Psikopat"
+			@kepribadian="Karakter anda rumit"
 		end
 
 		@user = current_user.update_attributes(:kepribadian => @kepribadian)
