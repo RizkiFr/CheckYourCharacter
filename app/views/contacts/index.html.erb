@@ -1,8 +1,16 @@
-<div class="head-about">
-	<div class="logo-about">
-		<%= link_to image_tag("logo"), {controller: 'welcome'} %>
-		<h3 class="text-center about" style="color: white">Contact Us</h3>
-    <ul class="nav nav-pills navbar-right">
+<div class="header-page">
+  <div class="nav-page">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to image_tag("logo",:class => 'navbar-logo'), {controller: 'welcome'} %>
+      </div>
+      <ul class="nav nav-pills">
+        <li role="presentation"><%= link_to 'Tes Karakter', answers_path %></li>
+        <li role="presentation"><%= link_to 'Info Karakter', articles_path %></li>
+        <li role="presentation"><%= link_to 'Contact Us', contacts_path %></li>
+        <li role="presentation"><%= link_to 'About Us', abouts_path %></li>
+      </ul>
+      <ul class="nav nav-pills navbar-right">
         <div class="navbar-text pull-right">
    
        <% if user_signed_in? %>
@@ -23,14 +31,24 @@
       <% end %>
       
       </ul>
-	</div>
+    </div>
+  </div>
 </div>
-
+<div class="body-page">
 <div class="container">
-  <h2>Masukan anda sangat berarti bagi kami</h2>
+<div class="outter-form show-hasil">
+  <h3 class="text-center">Masukan anda sangat berarti bagi kami</h3>
   <%= form_for @contact, url: {controller: "contacts", action: "create"} do |f| %>
-    <%= f.text_area :text, :class => 'form-control' %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.submit %>
+    <%= f.text_area :text, :class => 'form-control keluhan' %>
+    <%= f.hidden_field :user_id, :value => current_user.id %><br/>
+    <%= f.submit :class=>'btn btn-success' %>
   <% end %>
+</div>
+<%= link_to 'Kembali ke Halaman Utama', welcome_path, :class=>'btn btn-danger back-show' %>
+</div>
+</div>
+<div class="footer">
+    <div class="container">
+        &copy; 2017. Designed by CYC Team.
+    </div>
 </div>

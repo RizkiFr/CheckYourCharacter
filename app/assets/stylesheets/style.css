@@ -97,13 +97,14 @@ header{
 }
 .logo-about img{
 	position: relative;
-	width: 100px;
-	margin-top: 15px;
+	width: 110px;
+	margin-top: 25px;
 	margin-left: -50px;
 	left: 50%;
+	float: left;
 }
 .about{
-	margin-top: 1px;
+	margin-top: 10px;
 }
 #form{
 	display: inline-block;
@@ -291,7 +292,9 @@ a{
 .show-hasil{
 	margin-top: 50px;
 	min-height:535px;
-
+}
+.keluhan{
+	min-height: 400px;
 }
 .back-show{
 	margin-top: 20px;
