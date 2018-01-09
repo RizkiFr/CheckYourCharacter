@@ -34,19 +34,19 @@
   </div>
 </div>
 <div class="body-page">
-    <div class="container-fluid">
+    <div class="container"><br/><br/>
       <div class="table-responsive">
         <table class="table table-bordered table-striped">
           <thead>
             <tr class="info">
-              <th>Email</th>
+              <th class="col-md-4">Email</th>
               <th>Keluhan</th>
             </tr>
           </thead>
           <tbody>
             <% @complaints.each do |complaint| %>
               <tr>
-                <td><%= link_to complaint.user.email, complaint_path(complaint) %></td>
+                <td class="judul-article"><%= link_to complaint.user.email, complaint_path(complaint) %></td>
                 <td><%= complaint.text %></td>
               </tr>
             <% end %>

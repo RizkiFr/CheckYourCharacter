@@ -49,7 +49,7 @@
   
       <% @articles.each do |article| %>
         <h2 class="judul-article"><%= link_to article.title, article_path(article) %></h2><br>
-          <p class="judul-article"><%= article.text[0,100] %>....<%= link_to 'Read more', article_path(article)%></p>
+          <p class="judul-article"><%= article.text[0,100] %>....<strong><%= link_to 'Read more', article_path(article)%></strong></p>
       <% end %>
 
     <%= link_to 'Postingan saya', posts_path, :class=>'btn btn-info' %>
